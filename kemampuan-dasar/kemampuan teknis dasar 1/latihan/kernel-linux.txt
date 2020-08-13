@@ -1,0 +1,73 @@
+Cari lokasi dari kernel Linux, sebutkan file-file yang terkait dan kegunaannya.
+
+ketik cd /
+lalu ketik ls -lah
+
+berikut hasil
+
+(base) idfa001@Idfa:/$ ls -lah
+total 144K
+drwxr-xr-x  23 root root 4,0K Agu 11 12:26 .
+drwxr-xr-x  23 root root 4,0K Agu 11 12:26 ..
+drwxr-xr-x   2 root root 4,0K Agu 10 13:10 bin
+drwxr-xr-x   4 root root 4,0K Agu 10 13:12 boot
+drwxrwxr-x   2 root root 4,0K Agu 10 12:35 cdrom
+drwxr-xr-x  21 root root 4,4K Agu 12 11:22 dev
+drwxr-xr-x 129 root root  12K Agu 12 10:47 etc
+drwxr-xr-x   3 root root 4,0K Agu 10 12:53 home
+lrwxrwxrwx   1 root root   32 Agu 10 13:12 initrd.img -> boot/initrd.img-5.4.0-42-generic
+lrwxrwxrwx   1 root root   32 Agu 10 12:32 initrd.img.old -> boot/initrd.img-5.3.0-62-generic
+drwxr-xr-x  21 root root 4,0K Agu 10 12:57 lib
+drwxr-xr-x   2 root root 4,0K Agu 11 11:11 lib64
+drwx------   2 root root  16K Agu 10 12:32 lost+found
+drwxr-xr-x   3 root root 4,0K Agu 10 20:54 media
+drwxr-xr-x   2 root root 4,0K Jul  6 11:07 mnt
+drwxr-xr-x   2 root root 4,0K Jul  6 11:07 opt
+dr-xr-xr-x 262 root root    0 Agu 12  2020 proc
+drwx------   3 root root 4,0K Jul  6 11:19 root
+drwxr-xr-x  32 root root  940 Agu 12 11:25 run
+drwxr-xr-x   2 root root  12K Agu 10 13:12 sbin
+drwxr-xr-x   2 root root 4,0K Jul  6 11:07 srv
+dr-xr-xr-x  13 root root    0 Agu 12  2020 sys
+drwxrwxrwt  15 root root 4,0K Agu 12 12:20 tmp
+drwxr-xr-x  11 root root 4,0K Jul  6 11:07 usr
+drwxr-xr-x  12 root root 4,0K Jul  6 11:17 var
+lrwxrwxrwx   1 root root   29 Agu 10 13:12 vmlinuz -> boot/vmlinuz-5.4.0-42-generic
+lrwxrwxrwx   1 root root   29 Agu 10 13:12 vmlinuz.old -> boot/vmlinuz-5.3.0-62-generic
+-rw-r--r--   1 root root  15K Mei  7 03:31 .VolumeIcon.icns
+-rw-r--r--   1 root root  22K Mei  7 03:31 .VolumeIcon.png
+
+Kegunaan :
+folder /bin, ini adalah tempat dimana program untuk perintah paling umum seperti ls, rm, mkdir, cp dsb.
+
+folder /boot, di folder ini isinya Kernel Linux/Unix, Grub, Image RAM, segala hal yang diperlukan sebuah OS Linux/Unix untuk Booting up.
+
+folder /dev berisi semua drive harddisk atau hardware seperti modem, CD/DVD/Blu-ray dsb. 
+
+/etc berisi files konfigurasi dari program/aplikasi yang terinstall di dalam OS
+
+/home, semua files dan folder milik seorang user disimpan.
+
+/lib, berisi files atau folder penting seperti library program-program atau modul kernel. 
+
+/media merupakan folder mount dari external device seperti HDD external, flashdisk, CD/DVD. 
+
+/mnt juga merupakan folder mount, hanya saja sifatnya sementara dan dilakukan manual.
+
+folder /opt biasanya di isi dengan program yang diinstall tidak melalui paket manager (apt-get atau yum), alias kompile dan install langsung dari kode sumber (source code).
+
+/proc merupakan folder yang isinya files dimana kernel menerima informasi.
+
+/root, adalah folder super user dimana ketika remote ke ssh server menggunakan root akan diarahkan kesini
+
+folder /sbin berisi semua program yang hanya dapat dijalankan oleh super user, alias harus di sudo/su terlebih dahulu.
+
+/srv, folder ini bisa juga diisi oleh web server atau ftp server.
+
+/sys adalah folder dimana informasi mengenai sistem yang bisa dibaca oleh kernel.
+
+/tmp, tempat dimana file sementara disimpan, biasanya ketika install sebuah program.
+
+folder /usr berisi program-program yang merupakan tools seperti gcc, git, vim, mysql dsb. 
+
+ folder /var yang merupakan folder yang isinya berubah (bertambah/berkurang) dengan cepat, seperti file log ada di folder /var/log, file email (sendmail/postfix) di /var/mail atau web server di folder /var/www (Fedora/CentOS ada di folder /home/user/public_html)

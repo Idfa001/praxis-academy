@@ -1,0 +1,21 @@
+Parameter Grub GNU V.2.4 
+
+nomodeset:
+Kernel terbaru telah memindahkan pengaturan mode video ke dalam kernel. Jadi semua pemrograman laju jam khusus perangkat keras dan register pada kartu video terjadi di kernel daripada di driver X ketika X server mulai .. Hal ini memungkinkan untuk memiliki resolusi tinggi Tampilan yang bagus (boot) layar splash (boot) dan layar berkedip transisi gratis dari boot splash ke layar login. Sayangnya, pada beberapa kartu ini tidak berfungsi dengan baik dan Anda berakhir dengan layar hitam. Menambahkan parameter nomodeset memerintahkan kernel untuk tidak memuat driver video dan menggunakan mode BIOS sebagai gantinya X dimuat.
+
+quiet splash:
+    Splash (yang akhirnya berakhir di /boot/grub/grub.cfg Anda) menyebabkan layar splash ditampilkan.
+
+    Pada saat yang sama Anda ingin proses boot menjadi sunyi, karena jika tidak semua jenis pesan akan mengganggu layar splash itu.
+
+    Meskipun ditentukan dalam GRUB ini adalah parameter kernel yang mempengaruhi pemuatan kernel atau modulnya, bukan sesuatu yang mengubah perilaku GRUB. Bagian penting dari GRUB_CMDLINE_LINUX_DEFAULT adalah CMDLINE_LINUX
+
+concl:
+    Secara umum, parameter boot seperti itu tidak diperlukan kecuali ada masalah dengan BIOS Anda dan bagaimana BIOS menangani standar-standar ini, atau itu mungkin sudah cukup tua di mana standar-standar ini tidak sepenuhnya diimplementasikan dengan baik.
+
+    ACPI (Konfigurasi Lanjut dan Antarmuka Daya) adalah standar untuk menangani manajemen daya. Sistem yang lebih lama mungkin tidak mendukung ACPI secara penuh, jadi terkadang ada baiknya untuk memberi petunjuk pada kernel untuk tidak menggunakannya. "acpi = off"
+
+    APIC (Advanced Programmable Interrupt Controller) adalah sejenis fitur yang ditemukan pada sistem yang lebih baru. Versi "lokal" disebut "LAPIC". Apa yang dapat dilakukan pengontrol ini adalah disetel untuk menghasilkan dan menangani interupsi, sinyal yang digunakan perangkat keras untuk menyampaikan pesan. Sekali lagi, beberapa implementasi APIC dapat memiliki masalah pada sistem yang lebih lama, dan karenanya berguna untuk menonaktifkannya. "noapic" dan "nolapic".
+
+    Kadang-kadang APIC berfungsi, tetapi memperlambat segala sesuatunya di tengah pesan yang disampaikan. Ini dapat mengacaukan pemrosesan audio dan video, misalnya. Orang-orang mungkin menonaktifkannya karena alasan itu juga.
+
