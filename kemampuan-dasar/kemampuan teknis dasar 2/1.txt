@@ -1,0 +1,5 @@
+(base) idfa001@Idfa:~$ echo "Hello World"
+Hello World
+(base) idfa001@Idfa:~$ nano First.sh
+(base) idfa001@Idfa:~$ bash First.sh
+Hello World
