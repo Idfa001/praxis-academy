@@ -1,0 +1,12 @@
+x = float(input("Enter first number :"))
+y = float(input("Enter second number :"))
+
+print(x == y)
+print(x != y)
+print(x > y)
+print(x < y)
+print(x >= y)
+print(x <= y)
+print(x > 3 and x < 10)
+print(not(x > 3 and x < 10))
+print(x > 3 or x < 4)
