@@ -3,7 +3,7 @@
 
 Open PSQL	 > sudo -u postgres psql
 \c <db_name>	 > Masuk ke Database
-Membuat Database > CREATE DATABASE ambyar;
+Membuat Database > CREATE DATABASE <name>;
 Hapus Database	 > DROP DATABASE <name>;
 Hapus Tabel	 > DROP TABLE <name>;
 Menampiplkan	 > SELECT * FROM <name>;

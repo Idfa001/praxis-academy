@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title align="center">Ambyar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <style>
+    table 
+      {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th {
+      background-color: #8aedff;
+      text-align: center;
+      padding: 14px;
+    }
+
+    td 
+      {
+      border: 1px solid #ececec;
+      text-align: center;
+      padding: 14px;
+    }
+    
+    </style>
+
+
+
+  <div class="container">
+    <br>
+    <h1 align ="center" >Music FYI</h1>
+    <br>
+    <form method="POST" actions="" class="mt-3">
+        {% csrf_token %}
+
+          Judul Lagu
+        <input type="text" name="name" class="form-control">
+          Genre
+        <input type="text" name="genre" class="form-control">
+          Penyanyi
+        <input type="text" name="artis" class="form-control">
+          Tahun
+        <input type="text" name="th" class="form-control">
+          Lirik
+        <input type="text" name="lirik" class="form-control">
+          Album
+        <input type="text" name="link" class="form-control">
+        <button class="btn btn-primary mt-1">Tambah Lagu Baru</button>
+    </form>
+  </div>
+  <div class="container">
+    <div class="">
+     <p align="right">
+     <button class="btn btn-primary mt-1" onclick="goBack()">Back</button>
+  
+    <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script> 
+  
+    </div>
+  </div>
+</body>
+</html>
