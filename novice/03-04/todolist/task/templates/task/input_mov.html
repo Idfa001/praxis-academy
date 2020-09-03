@@ -16,7 +16,7 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+   
   .topnav {
     overflow: hidden;
     background-color: #333;
@@ -47,7 +47,7 @@
   <div class="topnav">
     <a class="active" href="#home">Ambyar</a>
     <a href="/input">MUSIC</a>
-    <a href="#inputfilm">MOVIE</a>
+    <a href="/inputmovie">MOVIE</a>
   </div>
   <style>
     table 
@@ -76,27 +76,26 @@
 
   <div class="container">
     <br>
-    <h1 align ="center" >Music FYI</h1>
+    <h1 align ="center" >Movie FYI</h1>
     <br>
     <form method="POST" actions="" class="mt-3">
         {% csrf_token %}
 
-          Judul Lagu
-        <input type="text" name="name" class="form-control">
+          Judul Movie
+        <input type="text" name="title" class="form-control">
           Genre
-        <input type="text" name="genre" class="form-control">
-          Penyanyi
-        <input type="text" name="artis" class="form-control">
+        <input type="text" name="gen" class="form-control">
+          Rating
+        <input type="text" name="rate" class="form-control">
           Tahun
-        <input type="text" name="th" class="form-control">
-          Lirik
-        <input type="text" name="lirik" class="form-control">
-          Album
-        <input type="text" name="link" class="form-control">
-        <button class="btn btn-primary mt-1">Tambah Lagu Baru</button>
+        <input type="text" name="years" class="form-control">
+          Deskripsi
+        <input type="text" name="des" class="form-control">
+
+        <button class="btn btn-primary mt-1">Tambah Movie Baru</button>
     </form>
   </div>
-  <h1 align ="center" >Music FYI</h1>
+  <h1 align ="center" >Movie FYI</h1>
   <style>
     table 
       {
@@ -134,11 +133,11 @@
         {% for d in data %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{d.name}}</td>
+            <td>{{d.title}}</td>
             <td>   
-              <a type="button" class="btn btn-success" href="/{{d.id}}">Detail</a>
-              <a type="button" class="btn btn-warning" href="/{{d.id}}/update">Edit</a>
-              <a type="button" class="btn btn-danger" href="/{{d.id}}/delete">Hapus</a>
+              <a type="button" class="btn btn-success" href="/{{d.id}}/movie">Detail</a>
+              <a type="button" class="btn btn-warning" href="/{{d.id}}/updatemovie">Edit</a>
+              <a type="button" class="btn btn-danger" href="/{{d.id}}/deletemovie">Hapus</a>
             </td>
         </tr>
         {% endfor %}
