@@ -12,11 +12,20 @@
 <body>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
- 
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -24,11 +33,11 @@ body {
 
 .topnav a {
   float: left;
+  display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
 }
 
 .topnav a:hover {
@@ -36,19 +45,100 @@ body {
   color: black;
 }
 
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+.column {
+  float: center;
+  width: 33%;
+  padding: 60px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ 
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.header{
+   background: #000000 url(https://cdna.artstation.com/p/assets/images/images/024/538/828/original/pixel-jeff-clipc-s.gif?1582740521) 100% 100% no-repeat;
 }
 </style>
 </head>
 <body>
 
-<div class="topnav">
-  <a class="active" href="#home">HOME</a>
-  <a href="/input">MUSIC</a>
-  <a href="/inputmovie">MOVIE</a>
-</div>
+  <div class="header">
+    <h1 style="color:rgb(255, 255, 255)">AMBYAR</h1>
+    <p style="color:rgb(255, 255, 255)">Behold your friendly neighbor web about music and movie list</p>
+  </div>
+  
+  <div class="topnav">
+    <a href="/">Home</a>
+  </div>
+  
+  <div class="row">
+    <div class="column">
+      <h2>MUSIC FYI</h2>
+      <p>Menyediakan form untuk list music dan soundtrack favorit anda.</p>
+      <br>
+      <a class="button" style="vertical-align:middle" href="/input" ><span>Masuk </span></a>
+    </div>
+    
+    <div class="column">
+      <h2>MOVIE FYI</h2>
+      <p>Menyediakan form untuk list Movie dan series favorit anda.</p>
+      <br>
+      <a class="button" style="vertical-align:middle" href="/inputmovie" ><span>Masuk </span></a>
+    </div>
 
+    <div class="column">
+      <h2>AQUASCAPE FYI</h2>
+      <p>Menyediakan form untuk list Ikan hias dan tanaman aquascape favorit anda favorit anda.</p>
+      <br>
+      <a class="button" style="vertical-align:middle" href="/inputmovie" ><span>Masuk </span></a>
+    </div>
+    
+  
+  </div>
+  
 </body>
 </html>
