@@ -26,13 +26,18 @@ def input (req):
     })
 
 def inputmovie (req):
-    if req.POST:
-        models.Movie.objects.create(title=req.POST['title'], gen=req.POST['gen'], rate=req.POST['rate'], years=req.POST['years'], des=req.POST['des'])
-        return redirect('/')
+    form_input = forms.TaskForm()
 
+    if req.POST:
+        form_input = forms.TaskForm(req.POST)
+
+        if form_input.is_valid():
+           form_input.save()
+           
     task = models.Movie.objects.all()
     return render(req, 'task/input_mov.html', {
         'data': task,
+        'form': form_input,
     })
 
 def detail(req, id):

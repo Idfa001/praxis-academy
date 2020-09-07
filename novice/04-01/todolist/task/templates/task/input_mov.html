@@ -79,19 +79,9 @@
     <h1 align ="center" >Movie FYI</h1>
     <br>
     <form method="POST" actions="" class="mt-3">
-        {% csrf_token %}
-
-          Judul Movie
-        <input type="text" name="title" class="form-control">
-          Genre
-        <input type="text" name="gen" class="form-control">
-          Rating
-        <input type="text" name="rate" class="form-control">
-          Tahun
-        <input type="text" name="years" class="form-control">
-          Deskripsi
-        <input type="text" name="des" class="form-control">
-
+      {% load crispy_forms_tags %}
+      {% csrf_token %}
+      {{ form|crispy }}
         <button class="btn btn-primary mt-1">Tambah Movie Baru</button>
     </form>
   </div>
