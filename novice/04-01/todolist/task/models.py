@@ -5,7 +5,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255)
     genre = models.CharField(max_length=255)
     artis = models.CharField(max_length=255)
-    th = models.TextField(default='')
+    th = models.CharField(max_length=255)
     lirik = models.CharField(max_length=255)
     link  = models.CharField(max_length=255)
 
