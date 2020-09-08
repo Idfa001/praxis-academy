@@ -35,7 +35,7 @@ def inputmovie (req):
            form_input.save()
            
     task = models.Movie.objects.all()
-    return render(req, 'task/input_mov.html', {
+    return render(req, 'task/movie/input_mov.html', {
         'data': task,
         'form': form_input,
     })
@@ -50,7 +50,7 @@ def inputcomic (req):
            form_input.save()
            
     task = models.Comic.objects.all()
-    return render(req, 'task/input_comic.html', {
+    return render(req, 'task/comic/input_comic.html', {
         'data': task,
         'form': form_input,
     })
@@ -63,13 +63,13 @@ def detail(req, id):
 
 def detailmovie(req, id):
     task = models.Movie.objects.filter(pk=id).first()
-    return render(req, 'task/detail_mov.html', {
+    return render(req, 'task/movie/detail_mov.html', {
         'data': task,
     })
 
 def detailcomic(req, id):
     task = models.Comic.objects.filter(pk=id).first()
-    return render(req, 'task/detail_comic.html', {
+    return render(req, 'task/comic/detail_comic.html', {
         'data': task,
     })
 
@@ -101,7 +101,7 @@ def updatemovie (req, id):
         return redirect('/')
 
     task = models.Movie.objects.filter(pk=id).first()
-    return render(req, 'task/update_mov.html', {
+    return render(req, 'task/movie/update_mov.html', {
         'data': task,
     })
 
@@ -111,7 +111,7 @@ def updatecomic (req, id):
         return redirect('/')
 
     task = models.Comic.objects.filter(pk=id).first()
-    return render(req, 'task/update_comic.html', {
+    return render(req, 'task/comic/update_comic.html', {
         'data': task,
     })
 
