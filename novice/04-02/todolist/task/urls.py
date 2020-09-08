@@ -9,11 +9,13 @@ urlpatterns = [
     path('', views.index),
     path('about/', views.about),
     path('music/', views.music),
-    #path('movie/', views.indexmovie),
-    #path('comic/', views.indexcomic),
+    path('movie/', views.movie),
+    path('comic/', views.comic),
+
     path('input/', views.input),
     path('inputmovie/', views.inputmovie),
     path('inputcomic/', views.inputcomic),
+    
     path('<id>/', views.detail),
     path('<id>/delete/', views.delete),
     path('<id>/update/', views.update),

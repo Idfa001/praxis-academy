@@ -23,6 +23,20 @@ def music (req):
         'data': task,
     })
 
+def movie (req):
+
+    task = models.Movie.objects.all()
+    return render(req, 'task/movie/movie.html', {
+        'data': task,
+    })
+
+def comic (req):
+
+    task = models.Comic.objects.all()
+    return render(req, 'task/comic/comic.html', {
+        'data': task,
+    })
+
 def input (req):
     form_input = forms.TaskForm()
 

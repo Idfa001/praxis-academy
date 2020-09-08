@@ -151,49 +151,32 @@ h4 {
   
   <div class="topnav">
     <a href="/"><b>HOME</b></a>
-    <a href="/music"><b>MUSIC</b></a>
-    <a href="/input"><b>TAMBAH LAGU</b></a>
+    <a href="/movie"><b>MOVIE</b></a>
+    <a href="/inputmovie"><b>TAMBAH MOVIE</b></a>
   </div>
   <br><br>
-  <style>
-    table 
-      {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    th {
-      background-color: #8aedff;
-      text-align: center;
-      padding: 14px;
-    }
-
-    td 
-      {
-      border: 1px solid #ececec;
-      text-align: center;
-      padding: 14px;
-    }
-    
-    .asteriskField {
-    display: none;
-    }
-
-    </style>
-
-
-
   <div class="container">
     <br>
-    <h1 align ="center" >Music FYI</h1>
-    <br>
-    <form method="POST" actions="" class="mt-3">
-        {% load crispy_forms_tags %}
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-primary mt-1">Tambah Lagu Baru</button>
-    </form>
+      <br>
+      <table class="table table-striped">
+        <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Actions</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{d.judul}}</td>
+            <td>   
+              <a type="button" class="btn btn-success" href="/{{d.id}}/movie">Detail</a>
+              <a type="button" class="btn btn-warning" href="/{{d.id}}/updatemovie">Edit</a>
+              <a type="button" class="btn btn-danger" href="/{{d.id}}/deletemovie">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </table>
+  </div>
   </div>
   
 </body>
