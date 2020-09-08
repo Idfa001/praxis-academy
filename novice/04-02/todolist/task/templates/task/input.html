@@ -8,7 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
 </head>
 <body>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,22 +70,26 @@
       padding: 14px;
     }
     
+    .asteriskField {
+    display: none;
+    }
+
     </style>
 
 
 
   <div class="container">
     <br>
-    <h1 align ="center" >Movie FYI</h1>
+    <h1 align ="center" >Music FYI</h1>
     <br>
     <form method="POST" actions="" class="mt-3">
-      {% load crispy_forms_tags %}
-      {% csrf_token %}
-      {{ form|crispy }}
-        <button class="btn btn-primary mt-1">Tambah Movie Baru</button>
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary mt-1">Tambah Lagu Baru</button>
     </form>
   </div>
-  <h1 align ="center" >Movie FYI</h1>
+  <h1 align ="center" >Music FYI</h1>
   <style>
     table 
       {
@@ -107,10 +110,6 @@
       text-align: center;
       padding: 14px;
     }
-
-    .asteriskField {
-    display: none;
-    }
     
     </style>
 
@@ -128,15 +127,16 @@
         {% for d in data %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{d.title}}</td>
+            <td>{{d.name}}</td>
             <td>   
-              <a type="button" class="btn btn-success" href="/{{d.id}}/movie">Detail</a>
-              <a type="button" class="btn btn-warning" href="/{{d.id}}/updatemovie">Edit</a>
-              <a type="button" class="btn btn-danger" href="/{{d.id}}/deletemovie">Hapus</a>
+              <a type="button" class="btn btn-success" href="/{{d.id}}">Detail</a>
+              <a type="button" class="btn btn-warning" href="/{{d.id}}/update">Edit</a>
+              <a type="button" class="btn btn-danger" href="/{{d.id}}/delete">Hapus</a>
             </td>
         </tr>
         {% endfor %}
       </table>
   </div>
+
 </body>
 </html>

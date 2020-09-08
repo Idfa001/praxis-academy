@@ -10,8 +10,8 @@ class Task(models.Model):
     link  = models.CharField(max_length=255)
 
 class Movie(models.Model):
-    title = models.TextField(default='')
-    gen   = models.TextField(default='')
-    rate  = models.TextField(default='')
-    years = models.TextField(default='')
-    des   = models.TextField(default='')
+    title = models.CharField(max_length=255)
+    gen   = models.CharField(max_length=255)
+    rate  = models.CharField(max_length=255)
+    years = models.CharField(max_length=255)
+    des   = models.CharField(max_length=255)
