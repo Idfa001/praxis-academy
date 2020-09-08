@@ -124,7 +124,7 @@ def update (req, id):
 
 def updatemovie (req, id):
     if req.POST:
-        task = models.Movie.objects.filter(pk=id).update(judul=req.POST['judul'], genres=req.POST['genres'], rating=req.POST['rating'], tahun=req.POST['tahun'], des=req.POST['des'])
+        task = models.Movie.objects.filter(pk=id).update(judul=req.POST['judul'], genres=req.POST['genres'], rating=req.POST['rating'], tahun=req.POST['tahun'], deskripsi=req.POST['deskripsi'])
         return redirect('/')
 
     task = models.Movie.objects.filter(pk=id).first()

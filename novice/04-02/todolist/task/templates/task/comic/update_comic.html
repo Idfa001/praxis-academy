@@ -13,7 +13,7 @@
 
   <div class="container">
     <br>
-    <h4 align="center">Ubah data Movie</h4>
+    <h4 align="center">Ubah data Comic</h4>
     <form method="POST" actions="" class="mt-3">
         {% csrf_token %}
 
@@ -21,27 +21,27 @@
       <tr>
           <tr></tr>
           <td>Judul</td>
-          <td><input type="text" name="title" value="{{data.title}}" class="form-control"></td>
+          <td><input type="text" name="judul" value="{{data.judul}}" class="form-control"></td>
 
 
           <tr>
           <td>Genre</td>
-          <td><input type="text" name="gen" value="{{data.gen}}" class="form-control"></td>
+          <td><input type="text" name="author" value="{{data.author}}" class="form-control"></td>
           </tr>
 
           <tr>
           <td>Rating</td>
-          <td><input type="text" name="rate" value="{{data.rate}}" class="form-control"></td>
+          <td><input type="text" name="status" value="{{data.status}}" class="form-control"></td>
           </tr>
 
           <tr>
           <td>Tahun</td>
-          <td><input type="text" name="years" value="{{data.years}}" class="form-control"></td>
+          <td><input type="text" name="genres" value="{{data.genres}}" class="form-control"></td>
           </tr>
 
           <tr>
           <td>Deskripsi</td>
-          <td><input type="text" name="des" value="{{data.des}}" class="form-control"></td>
+          <td><input type="text" name="update" value="{{data.update}}" class="form-control"></td>
           </tr>
       </table>
       <button class="btn btn-primary mt-1">Simpan</button>
