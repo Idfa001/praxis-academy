@@ -9,6 +9,19 @@ def index (req):
     return render(req, 'task/index.html', {
         'data': task,
     })
+def about (req):
+
+    task = models.Task.objects.all()
+    return render(req, 'task/about.html', {
+        'data': task,
+    })
+
+def music (req):
+
+    task = models.Task.objects.all()
+    return render(req, 'task/music/music.html', {
+        'data': task,
+    })
 
 def input (req):
     form_input = forms.TaskForm()
@@ -20,7 +33,7 @@ def input (req):
            form_input.save()
 
     task = models.Task.objects.all()
-    return render(req, 'task/input.html', {
+    return render(req, 'task/music/input.html', {
         'data': task,
         'form': form_input,
     })
@@ -57,7 +70,7 @@ def inputcomic (req):
 
 def detail(req, id):
     task = models.Task.objects.filter(pk=id).first()
-    return render(req, 'task/detail.html', {
+    return render(req, 'task/music/detail.html', {
         'data': task,
     })
 
@@ -91,7 +104,7 @@ def update (req, id):
         return redirect('/')
 
     task = models.Task.objects.filter(pk=id).first()
-    return render(req, 'task/update.html', {
+    return render(req, 'task/music/update.html', {
         'data': task,
     })
 

@@ -19,7 +19,7 @@
 
 body {
   margin: 0;
-  background: #000000 url(https://cdn.hipwallpaper.com/i/89/0/MNxOvs.jpg) 50% 70% no-repeat;
+  background: #ffffff url() 50% 70% no-repeat;
 }
 
 .header {
@@ -115,6 +115,31 @@ h4 {
 .header{
    background: #000000 url(https://cdna.artstation.com/p/assets/images/images/024/538/828/original/pixel-jeff-clipc-s.gif?1582740521) 100% 100% no-repeat;
 }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    table 
+      {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th {
+      background-color: #8aedff;
+      text-align: center;
+      padding: 14px;
+    }
+
+    td {
+      border: 1px solid #ececec;
+      text-align: center;
+      padding: 14px;
+    }
+
 </style>
 </head>
 <body>
@@ -125,44 +150,32 @@ h4 {
   </div>
   
   <div class="topnav">
-    <a href="/"><b>Home</b></a>
-    <a href="about/"><b>About</b></a>
+    <a href="/music"><b>MUSIC</b></a>
+    <a href="/input"><b>TAMBAH LAGU</b></a>
   </div>
   <br><br>
-  <div class="row">
-      <div class="col-md-4">
-        <div class="card" style="width:280px" style="height:400px;">
-        <img class="card-img-top" src="https://4.bp.blogspot.com/-JgEtT3xa9xM/WMsdhqTBnvI/AAAAAAAAEiw/TGBIZHDOggAKBAenuY-dvWs-CLNPsP97QCEw/s1600/Hieps%2Bscape.jpg" alt="Card image" style="width:100%">
-        <div class="card-body">
-          <h4 class="card-title">MUSIC FYI</h4>
-          <p class="card-text">Menyediakan form untuk list Movie dan TV Series favorit anda</p>
-          <a class="button" style="vertical-align:middle" href="music/" ><span>Masuk </span></a>
-        </div>
-        </div>
-       </div>
-    
-    <div class="col-md-4">
-      <div class="card" style="width:280px" style="height:400px;">
-      <img class="card-img-top" src="https://4.bp.blogspot.com/-JgEtT3xa9xM/WMsdhqTBnvI/AAAAAAAAEiw/TGBIZHDOggAKBAenuY-dvWs-CLNPsP97QCEw/s1600/Hieps%2Bscape.jpg" alt="Card image" style="width:100%">
-      <div class="card-body">
-        <h4 class="card-title">MOVIE FYI</h4>
-        <p class="card-text">Menyediakan form untuk list Movie dan TV Series favorit anda</p>
-        <a class="button" style="vertical-align:middle" href="/inputmovie" ><span>Masuk </span></a>
-      </div>
-      </div>
-     </div>
-    <div class="col-md-4">
-      <div class="card" style="width:280px" style="height:400px;">
-      <img class="card-img-top" src="https://4.bp.blogspot.com/-JgEtT3xa9xM/WMsdhqTBnvI/AAAAAAAAEiw/TGBIZHDOggAKBAenuY-dvWs-CLNPsP97QCEw/s1600/Hieps%2Bscape.jpg" alt="Card image" style="width:100%">
-      <div class="card-body">
-        <h4 class="card-title">COMIC FYI</h4>
-        <p class="card-text">Menyediakan form untuk list Komik bacaan favorit anda</p>
-        <a class="button" style="vertical-align:middle" href="/inputcomic" ><span>Masuk </span></a>
-      </div>
-      </div>
-     </div>
-    </div>
-  
+  <div class="container">
+    <br>
+      <br>
+      <table class="table table-striped">
+        <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Actions</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{d.judul}}</td>
+            <td>   
+              <a type="button" class="btn btn-success" href="/{{d.id}}">Detail</a>
+              <a type="button" class="btn btn-warning" href="/{{d.id}}/update">Edit</a>
+              <a type="button" class="btn btn-danger" href="/{{d.id}}/delete">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </table>
+  </div>
   </div>
   
 </body>
