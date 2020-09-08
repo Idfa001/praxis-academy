@@ -48,6 +48,7 @@
     <a href="/">HOME</a>
     <a href="/input">MUSIC</a>
     <a href="/inputmovie">MOVIE</a>
+    <a href="/inputcomic">COMIC</a>
   </div>
   <style>
     table 
@@ -127,7 +128,7 @@
         {% for d in data %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{d.name}}</td>
+            <td>{{d.judul}}</td>
             <td>   
               <a type="button" class="btn btn-success" href="/{{d.id}}">Detail</a>
               <a type="button" class="btn btn-warning" href="/{{d.id}}/update">Edit</a>

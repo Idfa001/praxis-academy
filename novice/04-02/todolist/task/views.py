@@ -87,7 +87,7 @@ def deletecomic(req, id):
 
 def update (req, id):
     if req.POST:
-        task = models.Task.objects.filter(pk=id).update(name=req.POST['name'], genre=req.POST['genre'], artis=req.POST['artis'], th=req.POST['th'], lirik=req.POST['lirik'], link=req.POST['link'])
+        task = models.Task.objects.filter(pk=id).update(name=req.POST['name'], genre=req.POST['genre'], artis=req.POST['artis'], tahun=req.POST['tahun'], album=req.POST['album'], lirik=req.POST['lirik'])
         return redirect('/')
 
     task = models.Task.objects.filter(pk=id).first()
@@ -97,7 +97,7 @@ def update (req, id):
 
 def updatemovie (req, id):
     if req.POST:
-        task = models.Movie.objects.filter(pk=id).update(title=req.POST['title'], gen=req.POST['gen'], rate=req.POST['rate'], years=req.POST['years'], des=req.POST['des'])
+        task = models.Movie.objects.filter(pk=id).update(judul=req.POST['judul'], genres=req.POST['genres'], rating=req.POST['rating'], tahun=req.POST['tahun'], des=req.POST['des'])
         return redirect('/')
 
     task = models.Movie.objects.filter(pk=id).first()
