@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sobat Ambyar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Movie Detail</h1>
+
+      <table class="table table-striped">
+        <tr>
+            <td>ID</td>
+            <td>Nama</td>
+            <td>Stok</td>
+            <td>Kedaluarsa</td>
+            <td>Deskripsi</td>
+            <td>Harga</td>
+        </tr>
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.Nama}}</td>
+            <td>{{data.Stok}}</td>
+            <td>{{data.Kedaluarsa}}</td>
+            <td>{{data.Deskripsi}}</td>
+            <td>{{data.Harga}}</td>       
+        </tr>
+
+      </table>
+  </div>
+
+  <div class="container">
+    <div class="">
+     <p align="right">
+     <button class="btn btn-primary mt-1" onclick="goBack()">Back</button>
+  
+    <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script> 
+  
+    </div>
+  </div>
+</body>
+</html>
