@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Penjualan(models.Model):
+  name = models.CharField(max_length=255)
+  description = models.TextField()
+  done_at = models.DateTimeField(null=True, blank=True)
