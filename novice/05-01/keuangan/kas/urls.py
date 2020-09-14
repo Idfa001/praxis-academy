@@ -6,9 +6,14 @@ from . import views
 
 urlpatterns = [
     
-    path('', views.index, name='penjualan'),
+    path('', views.index),
+    path('about/', views.about),
+    path('penjualan/', views.penjualan),
+
+    path('input/', views.input),
     path('<id>/', views.detail),
     path('<id>/delete/', views.delete),
     path('<id>/edit', views.edit),
     
+
 ]
