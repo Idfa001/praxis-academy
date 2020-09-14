@@ -1,7 +1,12 @@
 from django.db import models
+from datetime import datetime
 
 class Penjualan(models.Model):
-  tanggal_transaksi = models.DateTimeField(null=True, blank=True)
+  tanggal_transaksi = models.DateField(
+        auto_now_add=True
+    )
   nama_barang = models.CharField(max_length=255)
   jumlah_barang = models.IntegerField(default=0)
-  harga = models.DecimalField(default=0,max_digits=6, decimal_places=2)
+  harga_satuan = models.IntegerField()
+  def tanggal_transaksi_f(self):
+    return self.tanggal_transaksi.strftime("%d %b %Y ")

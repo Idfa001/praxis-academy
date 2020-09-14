@@ -24,6 +24,7 @@ def penjualan (req):
     })
 
 
+
 def input(req):
   form_input = forms.PenjualanForm()
 
@@ -32,18 +33,18 @@ def input(req):
 
     if form_input.is_valid():
       form_input.save()
-      return redirect(to='penjualan')
 
   kas = models.Penjualan.objects.all()
-  return render(req, 'penjualan/input.html', {
+  return render(req, 'kas/penjualan/input.html', {
     'data': kas,
     'form': form_input,
   })
+  
 
 def detail(req, id):
   kas = models.Penjualan.objects.filter(pk=id).first()
-  return render(req, 'penjualan/detail.html', {
-    'data': keuangan,
+  return render(req, 'kas/penjualan/detail.html', {
+    'data': kas,
   })
 
 def delete(req, id):
@@ -52,10 +53,10 @@ def delete(req, id):
 
 def edit(req, id):
   if req.POST:
-    kas = models.Penjualan.objects.filter(pk=id).update(name=req.POST['name'])
+    kas = models.Penjualan.objects.filter(pk=id).update(nama_barang=req.POST['nama_barang'], jumlah_barang=req.POST['jumlah_barang'])
     return redirect('/')
 
   kas = models.Penjualan.objects.filter(pk=id).first()
-  return render(req, 'penjualan/edit.html', {
+  return render(req, 'kas/penjualan/edit.html', {
     'data': kas,
   })

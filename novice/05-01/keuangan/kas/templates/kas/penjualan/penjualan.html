@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title align="center">Ambyar</title>
+  <title align="center">Catatan Keuangan</title>
   <link rel="icon" href="" type="image" sizes="16x16">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,19 +133,27 @@
   <div class="container">
     <br>
       <br>
-      <table class="table table-striped">
+      <table class="table mt-2">
         <tr>
             <th>No</th>
             <th>Nama Barang</th>
+            <th>Tanggal Transaksi</th>
+            <th>Jumlah Barang</th>
+            <th>Harga Satuan</th>
+            <th>Total</th>
             <th>Actions</th>
         </tr>
         {% for d in data %}
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{d.nama_barang}}</td>
+            <td>{{d.tanggal_transaksi_f}}</td>
+            <td align="center">{{d.jumlah_barang}}</td>
+            <td>{{d.harga_satuan}}</td>
+            <td></td>
             <td>   
               <a type="button" class="btn btn-success" href="/{{d.id}}">Detail</a>
-              <a type="button" class="btn btn-warning" href="/{{d.id}}/update">Edit</a>
+              <a type="button" class="btn btn-warning" href="/{{d.id}}/edit">Edit</a>
               <a type="button" class="btn btn-danger" href="/{{d.id}}/delete">Hapus</a>
             </td>
         </tr>
