@@ -6,20 +6,28 @@ def index(req):
 	return render(req, 'penjualan_t/index.html')
 
 def c_penjualan(req):
-	form_input = forms.PenjualanForm()
-
-	if req.POST:
-		form_input = forms.PenjualanForm(req.POST)
-		if form_input.is_valid():
-			form_input.save()
-
+	
 	penjualan = models.Penjualan.objects.all()
-
 	return render(req, 'penjualan_t/penjualan.html',
 		{
 		'penjualan': penjualan,
-		'form': form_input,
 		})
+
+
+def i_penjualan(req):
+  form_input = forms.PenjualanForm()
+
+  if req.POST:
+    form_input = forms.PenjualanForm(req.POST)
+
+    if form_input.is_valid():
+      form_input.save()
+
+  penjualan = models.Penjualan.objects.all()
+  return render(req, 'penjualan_t/penjualan_i.html', {
+    'data': penjualan,
+    'form': form_input,
+  })
 
 def r_penjualan(req, id):
 	penjualan = models.Penjualan.objects.filter(pk=id).first()

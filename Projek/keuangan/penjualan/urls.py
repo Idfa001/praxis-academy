@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index),
     
     path('penjualan', views.c_penjualan),
+    path('input-penjualan/', views.i_penjualan),
     path('<id>/read-penjualan', views.r_penjualan),
     path('<id>/update-penjualan', views.u_penjualan),
     path('<id>/delete-penjualan', views.d_penjualan),
