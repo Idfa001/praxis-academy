@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>The Materialize Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script>             
+   </head>
+   
+   <body>
+        <nav class="center blue accent-2">Penjualan Tunai</nav><br>
+        <div class="container">
+            <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
+            <a class="btn-floating btn-small waves-effect waves-light blue right"><i class="material-icons">add</i></a>
+        </div>
+        <div class="container">
+            <table class="highlight responsive-table">
+                <thead>
+                <tr>
+                    <th>Pilih</th>
+                    <th class="center">Tanggal</th>
+                    <th>Keterangan</th>
+                    <th>Jumlah</th>
+                    <th class="center">Catatan</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <form action="#">
+                            <p>
+                              <label>
+                                <input type="checkbox" />
+                                <span></span>
+                              </label>
+                            </p>
+                        </form>
+                    </td>
+                    <td class="center">01/01/2021</td>
+                    <td>Agung</td>
+                    <td>Rp 40.000</td>
+                    <td></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light green right"><i class="material-icons">edit</i></a>            
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form action="#">
+                            <p>
+                              <label>
+                                <input type="checkbox" />
+                                <span></span>
+                              </label>
+                            </p>
+                        </form>
+                    </td>
+                    <td class="center">01/01/2021</td>
+                    <td>Andre</td>
+                    <td>Rp 550.000</td>
+                    <td></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light green right"><i class="material-icons">edit</i></a>            
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form action="#">
+                            <p>
+                              <label>
+                                <input type="checkbox" />
+                                <span></span>
+                              </label>
+                            </p>
+                        </form>
+                    </td>
+                    <td class="center">01/01/2021</td>
+                    <td>Tasumi</td>
+                    <td>Rp 320.000</td>
+                    <td></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light green right"><i class="material-icons">edit</i></a>            
+                    </td>
+                </tr>
+                </tbody>
+                <thead class="blue lighten-3">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Uang diterima</th>
+                        <th>Rp 910.000</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+       </div>
+
+   </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>Penjualan</title>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">
+                <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
+                Praxis Academy
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href="penjualan">Penjualan<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/biaya">Biaya</a>
+                        <a class="nav-link" href="/hutang">Hutang</a>
+                    </div>
+                </div>
+            </a>
+        </nav>
+
+
+        <div class="card container">     
+<!-- Header -->
+                <div class="row" >
+                    <div class=" card-header text-center col-sm" >
+                        <h1 class="card-title" >Penjualan</h1><br>
+                    </div>
+                </div>
+<!-- End Header -->
+
+<!-- Content -->
+    <!-- Form -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <form method="POST" action="" class="row mt-3">
+                            {% load crispy_forms_tags %}
+                            
+                            {% csrf_token %}
+
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>        
+    <!-- End Form -->
+
+    <!-- Table -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="table-responsive">
+                            <table class="table table-hover mt-3 text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Jumlah</th>
+                                        <th scope="col">Catatan</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for p in penjualan %}
+                                    <tr>
+                                        <th scope="row">{{forloop.counter}}</th>
+                                        <td>{{p.tanggal}}</td>
+                                        <td>{{p.keterangan}}</td>
+                                        <td>Rp. {{p.jumlah}}</td>
+                                        <td>{{p.catatan}}</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-success" href="{{p.id}}/read-penjualan">Detail</a>
+                                            <a class="btn btn-sm btn-warning" href="{{p.id}}/update-penjualan">Edit</a>
+                                            <a class="btn btn-sm btn-danger"  href="{{p.id}}/delete-penjualan">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- End Content -->
+
+
+<!-- Footer -->
+            <div class="card-footer text-muted text-center">
+                By Atko45 Studio
+            </div>
+<!-- End Footer -->
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>

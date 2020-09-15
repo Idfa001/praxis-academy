@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+   
+  </style>
+<body>
+
+  <div class="container">
+    <h1>Customer Edit</h1><br>
+    <h4>Edit</h1><br>
+      <form action="" method="post">
+        {% csrf_token %}
+      
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>ID</td>
+            <td>{{data.id}}</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Customer</td>  
+            <td>
+              <input type="text" name="customername" value="{{data.customername}}" class="form-control">
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Address</td>  
+            <td>
+              <input type="text" name="customeraddress" value="{{data.customeraddress}}" class="form-control">
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Contact</td>  
+            <td>
+              <input type="text" name="customercontact" value="+62{{data.customercontact}}" class="form-control">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary">Simpan</button>
+    </form>
+  </div>
+
+
+</body>
+</html>

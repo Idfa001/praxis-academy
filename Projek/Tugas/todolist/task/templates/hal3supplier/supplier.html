@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Supplier</h1><br>
+
+    <form action="" method="POST" class="mt-3">
+        {% csrf_token %}
+        
+        Supplier Name
+        <input type="text" name="suppliername" class="form-control" /><br>
+        Address
+        <input type="text" name="supplieraddress" class="form-control" /><br>
+        Contact
+        <input type="text" name="suppliercontact" class="form-control" /><br>
+        <button class="btn btn-primary btn-xs">Add Supplier</button>
+
+    </form><br>
+      
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Supplier</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+          <tr>
+            <td>{{forloop.counter}}</td>  
+            <td>{{d.suppliername}}</td>
+            <td>{{d.supplieraddress}}</td>
+            <td>+62{{d.suppliercontact}}</td>
+            <td>
+              <a type="button" class="btn btn-success btn-xs" href="/supplierdetail/{{d.id}}">Detail</a>
+              <a type="button" class="btn btn-warning btn-xs" href="/supplieredit/{{d.id}}">Edit</a>
+              <a type="button" class="btn btn-danger btn-xs" href="/supplierdelete/{{d.id}}/">Hapus</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+
+</body>
+</html>

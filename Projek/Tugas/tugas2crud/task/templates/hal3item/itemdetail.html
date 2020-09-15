@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Item Detail</h1><br>
+
+      
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>{{data.id}}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item</td>  
+            <td>{{data.itemname}}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <td>Price</td>
+            <td>{{data.itemprice}}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Selling Price</td>  
+            <td>{{data.itemsaleprice}}</td>
+          </tr>
+        </tbody>
+      </table>
+ 
+  </div>
+
+
+</body>
+</html>

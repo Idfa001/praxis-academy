@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>Hutang | Update</title>
+    </head>
+    <body>
+
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">
+                <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" href='#'>
+                Praxis Academy
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="/penjualan">penjualan<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/biaya">Biaya</a>
+                        <a class="nav-link active" href="/hutang">Hutang</a>
+                    </div>
+                </div>
+            </a>
+        </nav>
+
+        <div class="container px-lg-5">     
+
+            <div class="card container">     
+<!-- Header -->
+           
+                <div class="row">
+                    <div class="card-header col-sm text-center">
+                        <h1 class="card-title">Edit Hutang</h1><br>
+                    </div>
+                </div>
+          
+<!-- End Header -->
+
+<!-- Content -->
+
+    <!-- Form -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <form method="POST" action="/hutang/{{hutang.id}}/update-hutang" class="mt-3">
+                                {% csrf_token %}
+                            <div class="form-group">
+                                <h4>Edit</h4><br>
+                                <input type="date" name="tgl" class="form-control mt-2" value="{{hutang.tanggal}}" id="exampleInputPassword1">
+                                <input type="text" name="ket" class="form-control mt-2" value="{{hutang.keterangan}}" id="exampleInputPassword1">
+                                <input type="text" name="jumlah" class="form-control mt-2" value="{{hutang.jumlah}}" id="exampleInputPassword1">
+                                <input type="text" name="note" class="form-control mt-2" value="{{hutang.catatan}}" id="exampleInputPassword1">
+                                <button type="submit" class="btn btn-primary mt-2">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>        
+    <!-- End Form -->
+    <!-- Footer --> 
+            <div class="card-footer text-muted text-center">
+                By Atko45 Studio
+            </div>
+    <!-- Footer End --> 
+<!-- End Content -->
+        </div>
+<!-- Footer -->
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
