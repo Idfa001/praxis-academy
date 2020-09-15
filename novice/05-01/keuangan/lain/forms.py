@@ -3,9 +3,9 @@ from django.forms import ModelForm
 from . import models
 
 
-class PenjualanForm(ModelForm):
+class LainForm(ModelForm):
   class Meta:
-    model = models.Penjualan
+    model = models.Lain
     exclude = [
       'done_at',
     ]

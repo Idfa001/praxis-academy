@@ -126,8 +126,8 @@
   
   <div class="topnav">
     <a href="/"><b>HOME</b></a>
-    <a href="/penjualan"><b>PENJUALAN</b></a>
-    <a href="/input"><b>TAMBAH</b></a>
+    <a href="/lain"><b>LAIN</b></a>
+    <a href="input/"><b>TAMBAH</b></a>
   </div>
   <br><br>
   <div class="container">
@@ -136,20 +136,20 @@
       <table class="table mt-2">
         <tr>
             <th>No</th>
-            <th>Nama Barang</th>
             <th>Tanggal Transaksi</th>
-            <th>Jumlah Barang</th>
-            <th>Harga Satuan</th>
-            <th>Total</th>
-            <th>Actions</th>
+            <th>Keterangan</th>
+            <th>Kas</th>
+            <th>Piutang</th>
+            <th>Catatan</th>
         </tr>
         {% for d in data %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{d.nama_barang}}</td>
             <td>{{d.tanggal_transaksi_f}}</td>
-            <td align="center">{{d.jumlah_barang}}</td>
-            <td>{{d.harga_satuan}}</td>
+            <td>{{d.keterangan}}</td>
+            <td>{{d.kas}}</td>
+            <td>{{d.piutang}}</td>
+            <td>{{d.catatan}}</td>
             <td></td>
             <td>   
               <a type="button" class="btn btn-warning" href="/{{d.id}}/edit">Edit</a>

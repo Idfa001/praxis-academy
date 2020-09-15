@@ -23,8 +23,6 @@ def penjualan (req):
         'data': kas,
     })
 
-
-
 def input(req):
   form_input = forms.PenjualanForm()
 
@@ -38,13 +36,6 @@ def input(req):
   return render(req, 'kas/penjualan/input.html', {
     'data': kas,
     'form': form_input,
-  })
-  
-
-def detail(req, id):
-  kas = models.Penjualan.objects.filter(pk=id).first()
-  return render(req, 'kas/penjualan/detail.html', {
-    'data': kas,
   })
 
 def delete(req, id):
@@ -60,3 +51,4 @@ def edit(req, id):
   return render(req, 'kas/penjualan/edit.html', {
     'data': kas,
   })
+
