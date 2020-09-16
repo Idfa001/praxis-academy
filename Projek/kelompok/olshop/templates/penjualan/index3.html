@@ -10,8 +10,21 @@
          href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
       <script type = "text/javascript"
          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-      </script>             
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
+      <script>
+          $(document).ready(function()
+          {
+                var total;
+                var jumlahtotal=0;
+                $('td:nth-child(5)').each(function()
+                {
+                    total=$(this).html();
+                    jumlahtotal+=parseInt(total);
+                    $('#jumtotal').text(jumlahtotal);
+                });
+          });
+      </script>  
    </head>
    
    <body>
@@ -27,6 +40,7 @@
                     <th>Pilih</th>
                     <th class="center">Tanggal</th>
                     <th class="center">Barang</th>
+                    <th class="center">Harga</th>
                     <th class="center">Kuantitas</th>
                     <th class="center">Jumlah</th>
                     <th class="center">Catatan</th>
@@ -49,8 +63,9 @@
                             </td>
                             <td class="center">{{d.tanggal}}</td>
                             <td>{{d.barang}}</td>
-                            <th class="center">{{d.kuantitas}}</th>
-                            <td>{{d.jumlah}}</td>
+                            <td>{{d.barang.harga_jual}}</td>
+                            <td class="center">{{d.kuantitas}}</td>
+                            <td>Rp.{{d.total}}</td>
                             <td>{{d.catatan}}</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_p_tunai"><i class="material-icons">edit</i></a>            
@@ -64,7 +79,7 @@
                         <th></th>
                         <th>Uang diterima</th>
                         <th></th>
-                        <th>Rp 910.000</th>
+                        <td id="jumtotal"></td>
                         <th></th>
                         <th></th>
                     </tr>

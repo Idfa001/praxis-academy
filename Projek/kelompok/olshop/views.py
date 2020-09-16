@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.db.models import Sum
 from . import forms
 from . import models
+
 
 def halamandepan(req):
     return render(req, 'hal1/index1.html')
@@ -10,14 +12,22 @@ def penjualan(req):
 
 def penjualan_tunai(req):
     penjualan1 = models.penjualan1m.objects.all()
+    total = 0
+    for p in penjualan1:
+      total += p.total()
     return render(req, 'penjualan/index3.html', {
         'data': penjualan1,
+        'total': total,
     })
 
 def penjualan_kredit(req):
     penjualan2 = models.penjualan2m.objects.all()
+    total = 0
+    for p in penjualan2:
+      total += p.total()
     return render(req, 'penjualan/index4.html', {
         'data': penjualan2,
+        'total': total,
     })
 
 def penjualan_lain(req):
@@ -221,7 +231,7 @@ def barangv(req):
 #edit
 def edit_p_tunai(req, id):
     if req.POST:
-        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], catatan=req.POST['catatan'])
         return redirect('/penjualan_tunai')
 
     penjualan = models.penjualan1m.objects.filter(pk=id).first()
@@ -231,7 +241,7 @@ def edit_p_tunai(req, id):
 
 def edit_p_kredit(req, id):
     if req.POST:
-        models.penjualan2m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.penjualan2m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], catatan=req.POST['catatan'])
         return redirect('/penjualan_kredit')
 
     penjualan = models.penjualan2m.objects.filter(pk=id).first()
