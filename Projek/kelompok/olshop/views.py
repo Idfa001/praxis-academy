@@ -221,7 +221,7 @@ def barangv(req):
 #edit
 def edit_p_tunai(req, id):
     if req.POST:
-        models.penjualan1m.objects.filter(pk=id).update(barang=req.POST['barang'], kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
         return redirect('/penjualan_tunai')
 
     penjualan = models.penjualan1m.objects.filter(pk=id).first()
@@ -231,7 +231,7 @@ def edit_p_tunai(req, id):
 
 def edit_p_kredit(req, id):
     if req.POST:
-        models.penjualan2m.objects.filter(pk=id).update(barang=req.POST['barang'], kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.penjualan2m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
         return redirect('/penjualan_kredit')
 
     penjualan = models.penjualan2m.objects.filter(pk=id).first()
