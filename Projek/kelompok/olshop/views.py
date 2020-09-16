@@ -94,7 +94,7 @@ def penjualan1v(req):
         form_input = forms.penjualan1f(req.POST)
         if form_input.is_valid():
             form_input.save()
-        return redirect('/penjualan_tunai')
+            return redirect('/penjualan_tunai')
     return render(req, 'crud/penjualan1.html', {
         'form': form_input,
     })

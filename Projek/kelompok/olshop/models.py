@@ -1,15 +1,23 @@
 from django.db import models
 
+class barangm(models.Model):
+    barang = models.CharField(max_length=200)
+    harga_beli = models.DecimalField(max_digits=10, decimal_places=2)
+    harga_jual = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.barang
+
 class penjualan1m(models.Model):
     tanggal = models.DateField(auto_now_add=True)
-    barang = models.CharField(max_length=200)
+    barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING)
     kuantitas = models.IntegerField(default=0)
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
 
 class penjualan2m(models.Model):
     tanggal = models.DateField(auto_now_add=True)
-    barang = models.CharField(max_length=200)
+    barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING)
     kuantitas = models.IntegerField(default=0)
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
@@ -64,9 +72,6 @@ class pembayaran_lainm(models.Model):
     dibayar = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
 
-class barangm(models.Model):
-    barang = models.CharField(max_length=200)
-    harga_beli = models.DecimalField(max_digits=10, decimal_places=2)
-    harga_jual = models.DecimalField(max_digits=10, decimal_places=2)
 
+    
 
