@@ -37,14 +37,14 @@
                     {% for d in data %}
                         <tr>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_utang"><i class="material-icons">edit</i></a>            
+                                <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_utang"><i class="material-icons">edit</i></a>            
                             </td>
                             <td class="center">{{d.tanggal}}</td>
                             <td>{{d.keterangan}}</td>
-                            <td>{{d.jumlah}}</td>
+                            <td>Rp {{d.jum_utang}}</td>
                             <td>{{d.catatan}}</td>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
+                                <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus4"><i class="material-icons">delete_forever</i></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -54,7 +54,7 @@
                         <th></th>
                         <th></th>
                         <th>Uang diterima</th>
-                        <th>Rp 910.000</th>
+                        <th>Rp {{jum_utang}}</th>
                         <th></th>
                         <th></th>
                     </tr>

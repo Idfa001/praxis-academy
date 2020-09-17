@@ -25,8 +25,14 @@ class penjualan2m(models.Model):
     catatan = models.TextField(default="")
     terima = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.terima
+        
     def total(self):
         return self.barang.harga_jual * self.kuantitas
+
+    def saldo(self):
+        return self.total() - self.terima
 
 class penjualan3m(models.Model):
     tanggal = models.DateField(auto_now_add=True)
@@ -40,6 +46,8 @@ class penjualan3m(models.Model):
     
     def jumlah2(self):
         return self.piutang
+ 
+    
 
 class utangm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
@@ -47,11 +55,17 @@ class utangm(models.Model):
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
 
+    def jum_utang(self):
+        return self.jumlah
+
 class pend_lainm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
+
+    def jum_pend(self):
+        return self.jumlah
 
 class pem_tunaim(models.Model):
     tanggal = models.DateField(auto_now_add=True)

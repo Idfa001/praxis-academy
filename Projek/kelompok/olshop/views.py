@@ -51,6 +51,7 @@ def piutang(req):
     total = 0
     for p in penjualan2:
       total += p.total()
+    
     return render(req, 'uangmasuk/index6.html', {
         'data': penjualan2,
         'total': total,
@@ -58,14 +59,22 @@ def piutang(req):
 
 def utang(req):
     utang = models.utangm.objects.all()
+    jum_utang = 0
+    for i in utang:
+      jum_utang += i.jum_utang()
     return render(req, 'uangmasuk/index7.html', {
         'data': utang,
+        'jum_utang': jum_utang,
     })
 
 def pend_lain(req):
     pend = models.pend_lainm.objects.all()
+    jum_pend = 0
+    for i in pend:
+      jum_pend += i.jum_pend()
     return render(req, 'uangmasuk/index8.html', {
         'data': pend,
+        'jum_pend': jum_pend,
     })
 
 def pembelian(req):
@@ -394,3 +403,11 @@ def hapus2(req, id):
 def hapus3(req, id):
     models.penjualan3m.objects.filter(pk=id).delete()
     return redirect('/penjualan_lain')
+
+def hapus4(req, id):
+    models.utangm.objects.filter(pk=id).delete()
+    return redirect('/utang')
+
+def hapus5(req, id):
+    models.pem_tunaim.objects.filter(pk=id).delete()
+    return redirect('/pembelian_tunai')
