@@ -63,4 +63,17 @@ urlpatterns = [
     path('<id>/edit_pembayaran_biaya/',views.edit_pembayaran_biaya),
     path('<id>/edit_pembayaran_lain/',views.edit_pembayaran_lain),
     path('<id>/edit_barang/',views.edit_barang),
+
+    #Hapus
+    path('<id>/hapus1/',views.hapus1),
+    path('<id>/hapus2/',views.hapus2),
+    path('<id>/hapus3/',views.hapus3),
+    # path('<id>/edit_utang/',views.edit_utang),
+    # path('<id>/edit_pend_lain/',views.edit_pend_lain),
+    # path('<id>/edit_pem_tunai/',views.edit_pem_tunai),
+    # path('<id>/edit_pem_kredit/',views.edit_pem_kredit),
+    # path('<id>/edit_pem_lain/',views.edit_pem_lain),
+    # path('<id>/edit_pembayaran_biaya/',views.edit_pembayaran_biaya),
+    # path('<id>/edit_pembayaran_lain/',views.edit_pembayaran_lain),
+    # path('<id>/edit_barang/',views.edit_barang),
 ]

@@ -32,12 +32,29 @@ def penjualan_kredit(req):
 
 def penjualan_lain(req):
     penjualan3 = models.penjualan3m.objects.all()
+    jumlah = 0
+    jumlah2 = 0
+    for j in penjualan3:
+      jumlah += j.jumlah()
+    
+    for k in penjualan3:
+      jumlah2 += k.jumlah2()
     return render(req, 'penjualan/index5.html', {
         'data': penjualan3,
+        'jumlah': jumlah,
+        'jumlah2': jumlah2,
+
     })
 
 def piutang(req):
-    return render(req, 'uangmasuk/index6.html')
+    penjualan2 = models.penjualan2m.objects.all()
+    total = 0
+    for p in penjualan2:
+      total += p.total()
+    return render(req, 'uangmasuk/index6.html', {
+        'data': penjualan2,
+        'total': total,
+    })
 
 def utang(req):
     utang = models.utangm.objects.all()
@@ -338,3 +355,32 @@ def edit_barang(req, id):
     return render(req, 'keperluan/edit_barang.html', {
         'data': pem,
     })
+
+def edit_piutang(req, id):
+    if req.POST:
+        models.penjualan2m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], catatan=req.POST['catatan'])
+        return redirect('/penjualan_kredit')
+
+    penjualan = models.penjualan2m.objects.filter(pk=id).first()
+    return render(req, 'penjualan/edit_p_kredit.html', {
+        'data': penjualan,
+    })
+
+
+
+
+
+
+
+# Hapus
+def hapus1(req, id):
+    models.penjualan1m.objects.filter(pk=id).delete()
+    return redirect('/penjualan_tunai')
+
+def hapus2(req, id):
+    models.penjualan2m.objects.filter(pk=id).delete()
+    return redirect('/penjualan_kredit')
+
+def hapus3(req, id):
+    models.penjualan3m.objects.filter(pk=id).delete()
+    return redirect('/penjualan_lain')

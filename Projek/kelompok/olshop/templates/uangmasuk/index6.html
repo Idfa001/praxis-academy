@@ -42,46 +42,26 @@
                 <thead class="blue lighten-3">
                 <tr>
                     <th class="center">Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Piutang</th>
-                    <th>Diterima</th>
-                    <th>Saldo</th>
-                    <th></th>
+                    <th class="center">Keterangan</th>
+                    <th class="center">Piutang</th>
+                    <th class="center">Diterima</th>
+                    <th class="center">Saldo</th>
+                    <th class="center"></th>
                 </tr>
                 </thead>
-
                 <tbody>
-                <tr>
-                    <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 40.000</td>
-                    <td>Rp 100.000</td>
-                    <td></td>
-                    <td class="right">
-                        <a class="waves-effect waves-light btn-small green">terima</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 550.000</td>
-                    <td></td>
-                    <td></td>
-                    <td class="right">
-                        <a class="waves-effect waves-light btn-small green">terima</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 320.000</td>
-                    <td>Rp 100.000</td>
-                    <td></td>
-                    <td class="right">
-                        <a class="waves-effect waves-light btn-small green">terima</a>
-                    </td>
-                </tr>
-                </tbody>
+                    {% for d in data %}
+                        <tr>
+                            <td class="center">{{d.tanggal}}</td>
+                            <td class="center">{{d.catatan}}</td>
+                            <td class="right">Rp {{d.total}}</td>
+                            <td class="center">100000 apusi</td>
+                            <td>Saldo </td>
+                            <td class="right">
+                                <a class="waves-effect waves-light btn-small green">terima</a>
+                            </td>
+                        </tr>
+                {% endfor %}
             </table>
        </div>
 

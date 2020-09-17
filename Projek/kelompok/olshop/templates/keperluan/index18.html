@@ -17,39 +17,31 @@
    <body>
         <nav class="center teal">Barang</nav><br>
         <div class="container">
-            <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
+            <!-- <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a> -->
             <a class="btn-floating btn-small waves-effect waves-light blue right" href="/barangv"><i class="material-icons">add</i></a>
         </div>
         <div class="container">
             <table class="highlight responsive-table">
                 <thead>
-                <tr>
-                    <th>Pilih</th>
-                    <th>Barang</th>
-                    <th>Harga Beli</th>
-                    <th>Harga Jual</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th></th>
+                        <th>Barang</th>
+                        <th>Harga Beli</th>
+                        <th>Harga Jual</th>
+                    </tr>
                 </thead>
 
                 <tbody>
                     {% for d in data %}
                         <tr>
                             <td>
-                                <form action="#">
-                                    <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span></span>
-                                    </label>
-                                    </p>
-                                </form>
+                                <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_barang"><i class="material-icons">edit</i></a>            
                             </td>
                             <td>{{d.barang}}</td>
                             <td>{{d.harga_beli}}</td>
                             <td>{{d.harga_jual}}</td>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_barang"><i class="material-icons">edit</i></a>            
+                                <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
                             </td>
                         </tr>
                     {% endfor %}

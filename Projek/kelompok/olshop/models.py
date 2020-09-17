@@ -24,6 +24,7 @@ class penjualan2m(models.Model):
     kuantitas = models.IntegerField(default=0)
     catatan = models.TextField(default="")
 
+
     def total(self):
         return self.barang.harga_jual * self.kuantitas
 
@@ -33,6 +34,12 @@ class penjualan3m(models.Model):
     kas = models.IntegerField(default=0)
     piutang = models.IntegerField(default=0)
     catatan = models.TextField(default="")
+
+    def jumlah(self):
+        return self.kas 
+    
+    def jumlah2(self):
+        return self.piutang
 
 class utangm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
