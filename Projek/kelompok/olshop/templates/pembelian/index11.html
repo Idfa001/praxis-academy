@@ -17,17 +17,16 @@
    <body>
         <nav class="center deep-orange">Pembelian Kredit</nav><br>
         <div class="container">
-            <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
             <a class="btn-floating btn-small waves-effect waves-light blue right" href="/pem_kreditv"><i class="material-icons">add</i></a>
         </div>
         <div class="container">
             <table class="highlight responsive-table">
                 <thead>
                 <tr>
-                    <th>Pilih</th>
+                    <th></th>
                     <th class="center">Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Jumlah</th>
+                    <th class="center">Keterangan</th>
+                    <th class="center">Jumlah</th>
                     <th class="center">Catatan</th>
                     <th></th>
                 </tr>
@@ -37,21 +36,14 @@
                     {% for d in data %}
                         <tr>
                             <td>
-                                <form action="#">
-                                    <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span></span>
-                                    </label>
-                                    </p>
-                                </form>
+                                <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_pem_kredit"><i class="material-icons">edit</i></a>            
                             </td>
                             <td class="center">{{d.tanggal}}</td>
-                            <td>{{d.keterangan}}</td>
-                            <td>{{d.jumlah}}</td>
-                            <td>{{d.catatan}}</td>
+                            <td class="center">{{d.keterangan}}</td>
+                            <td class="center">{{d.jumlah}}</td>
+                            <td class="center">{{d.catatan}}</td>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_pem_kredit"><i class="material-icons">edit</i></a>            
+                                <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus6"><i class="material-icons">delete_forever</i></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -60,8 +52,8 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>Utang diterima</th>
-                        <th>Rp 910.000</th>
+                        <th class="center">Utang diterima</th>
+                        <th class="center">{{jum_pem}}</th>
                         <th></th>
                         <th></th>
                     </tr>

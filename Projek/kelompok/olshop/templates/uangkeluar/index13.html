@@ -23,7 +23,7 @@
                         <th></th>
                         <th></th>
                         <th>Saldo Utang</th>
-                        <th>Rp 910.000</th>
+                        <th>Rp {{total_saldo}}</th>
                     </tr>
                 </tbody>
                 <tbody>
@@ -31,7 +31,7 @@
                         <th></th>
                         <th></th>
                         <th>Uang Dibayar</th>
-                        <th>Rp 910.000</th>
+                        <th>Rp {{total_dibayar}}</th>
                     </tr>
                 </tbody>
             </table>
@@ -47,40 +47,25 @@
                     <th>Dibayar</th>
                     <th>Saldo</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
+                    {% for d in data %}
                 <tr>
                     <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 40.000</td>
-                    <td>Rp 100.000</td>
-                    <td></td>
-                    <td class="right">
-                        <a class="waves-effect waves-light btn-small green">bayar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 550.000</td>
-                    <td></td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.jum_utang}}</td>
+                    <td>Rp {{d.dibayar}}</td>
+                    <td>Rp {{d.saldo}}</td>
                     <td></td>
                     <td class="right">
-                        <a class="waves-effect waves-light btn-small green">bayar</a>
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang">bayar</a>
                     </td>
                 </tr>
-                <tr>
-                    <td class="center">01/01/2021</td>
-                    <td></td>
-                    <td>Rp 320.000</td>
-                    <td>Rp 100.000</td>
-                    <td></td>
-                    <td class="right">
-                        <a class="waves-effect waves-light btn-small green">bayar</a>
-                    </td>
-                </tr>
+                {% endfor %}
+
                 </tbody>
             </table>
        </div>

@@ -33,6 +33,9 @@ class penjualan2m(models.Model):
 
     def saldo(self):
         return self.total() - self.terima
+    
+    def jumlah3(self):
+        return self.saldo
 
 class penjualan3m(models.Model):
     tanggal = models.DateField(auto_now_add=True)
@@ -54,9 +57,13 @@ class utangm(models.Model):
     keterangan = models.CharField(max_length=200)
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
+    dibayar = models.DecimalField(default=0, max_digits=10, decimal_places=2)
 
     def jum_utang(self):
         return self.jumlah
+
+    def saldo(self):
+        return self.jumlah - self.dibayar
 
 class pend_lainm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
@@ -73,17 +80,31 @@ class pem_tunaim(models.Model):
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
 
+    def jum_pem(self):
+        return self.jumlah
+
 class pem_kreditm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
     jumlah = models.DecimalField(max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
 
+    def jum_pem(self):
+        return self.jumlah
+
 class pem_lainm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
-    jumlah = models.DecimalField(max_digits=10, decimal_places=2)
+    dibayar = models.DecimalField(default=0, max_digits=10, decimal_places=2)
+    utang = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     catatan = models.TextField(default="")
+
+    def jum_pem(self):
+        return self.dibayar
+
+
+    def jum_pem1(self):
+        return self.utang
 
 class pembayaran_biayam(models.Model):
     tanggal = models.DateField(auto_now_add=True)

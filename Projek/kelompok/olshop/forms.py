@@ -20,7 +20,7 @@ class penjualan3f(ModelForm):
 class utangf(ModelForm):
     class Meta:
         model = models.utangm
-        exclude = []
+        exclude = ['dibayar']
 
 class pend_lainf(ModelForm):
     class Meta:
