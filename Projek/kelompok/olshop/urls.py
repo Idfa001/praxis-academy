@@ -54,6 +54,7 @@ urlpatterns = [
     #edit
     path('<id>/edit_p_tunai/',views.edit_p_tunai),
     path('<id>/edit_p_kredit/',views.edit_p_kredit),
+    path('<id>/edit_p_kredit_terima/',views.edit_p_kredit_terima), #terima pembayaran
     path('<id>/edit_p_lain/',views.edit_p_lain),
     path('<id>/edit_utang/',views.edit_utang),
     path('<id>/edit_pend_lain/',views.edit_pend_lain),

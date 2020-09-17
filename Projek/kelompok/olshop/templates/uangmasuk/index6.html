@@ -55,10 +55,10 @@
                             <td class="center">{{d.tanggal}}</td>
                             <td class="center">{{d.catatan}}</td>
                             <td class="right">Rp {{d.total}}</td>
-                            <td class="center">100000 apusi</td>
+                            <td class="center">Rp {{d.terima}}</td>
                             <td>Saldo </td>
                             <td class="right">
-                                <a class="waves-effect waves-light btn-small green">terima</a>
+                                <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_p_kredit_terima">terima</a>
                             </td>
                         </tr>
                 {% endfor %}

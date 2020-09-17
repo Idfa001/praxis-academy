@@ -10,7 +10,7 @@ class penjualan1f(ModelForm):
 class penjualan2f(ModelForm):
     class Meta:
         model = models.penjualan2m
-        exclude = []
+        exclude = [ 'terima' ]
 
 class penjualan3f(ModelForm):
     class Meta:

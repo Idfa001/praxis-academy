@@ -23,7 +23,7 @@ class penjualan2m(models.Model):
     barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING)
     kuantitas = models.IntegerField(default=0)
     catatan = models.TextField(default="")
-
+    terima = models.IntegerField(default=0)
 
     def total(self):
         return self.barang.harga_jual * self.kuantitas

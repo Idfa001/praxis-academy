@@ -266,6 +266,16 @@ def edit_p_kredit(req, id):
         'data': penjualan,
     })
 
+def edit_p_kredit_terima(req, id):
+    if req.POST:
+        models.penjualan2m.objects.filter(pk=id).update(terima=req.POST['terima'])
+        return redirect('/piutang')
+
+    penjualan = models.penjualan2m.objects.filter(pk=id).first()
+    return render(req, 'uangmasuk/edit_piutang.html', {
+        'data': penjualan,
+    })
+
 def edit_p_lain(req, id):
     if req.POST:
         models.penjualan3m.objects.filter(pk=id).update(keterangan=req.POST['keterangan'], kas=req.POST['kas'], piutang=req.POST['piutang'], catatan=req.POST['catatan'])
