@@ -23,7 +23,7 @@
                         <th></th>
                         <th></th>
                         <th>Saldo Utang</th>
-                        <th>Rp {{total_saldo}}</th>
+                        <th>Rp {{jumlah1}}</th>
                     </tr>
                 </tbody>
                 <tbody>
@@ -31,7 +31,7 @@
                         <th></th>
                         <th></th>
                         <th>Uang Dibayar</th>
-                        <th>Rp {{total_dibayar}}</th>
+                        <th>Rp {{jumlah2}}</th>
                     </tr>
                 </tbody>
             </table>
@@ -42,7 +42,7 @@
                 <thead class="orange accent-2">
                 <tr>
                     <th class="center">Tanggal</th>
-                    <th>Keterangan</th>
+                    <th>Kreditur</th>
                     <th>Utang</th>
                     <th>Dibayar</th>
                     <th>Saldo</th>
@@ -65,6 +65,35 @@
                     </td>
                 </tr>
                 {% endfor %}
+
+                {% for d in data1 %}
+                <tr>
+                    <td class="center">01/01/2021</td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.jumlah}}</td>
+                    <td>Rp {{d.dibayar1}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang1">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for d in data2 %}
+                <tr>
+                    <td class="center">01/01/2021</td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.utang}}</td>
+                    <td>Rp {{d.dibayar2}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang2">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
 
                 </tbody>
             </table>

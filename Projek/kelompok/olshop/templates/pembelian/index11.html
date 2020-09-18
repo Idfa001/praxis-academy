@@ -26,8 +26,8 @@
                     <th></th>
                     <th class="center">Tanggal</th>
                     <th class="center">Keterangan</th>
-                    <th class="center">Jumlah</th>
-                    <th class="center">Catatan</th>
+                    <th class="center">Utang</th>
+                    <th class="center">Kreditur</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -40,7 +40,7 @@
                             </td>
                             <td class="center">{{d.tanggal}}</td>
                             <td class="center">{{d.keterangan}}</td>
-                            <td class="center">{{d.jumlah}}</td>
+                            <td class="center">Rp {{d.jumlah}}</td>
                             <td class="center">{{d.catatan}}</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus6"><i class="material-icons">delete_forever</i></a>
@@ -53,7 +53,7 @@
                         <th></th>
                         <th></th>
                         <th class="center">Utang diterima</th>
-                        <th class="center">{{jum_pem}}</th>
+                        <th class="center">Rp {{jum_pem}}</th>
                         <th></th>
                         <th></th>
                     </tr>

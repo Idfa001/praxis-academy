@@ -17,7 +17,6 @@
    <body>
         <nav class="center deep-orange">Pembayaran Biaya</nav><br>
         <div class="container">
-            <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a>
             <a class="btn-floating btn-small waves-effect waves-light blue right" href="/pembayaran_biayav"><i class="material-icons">add</i></a>
         </div>
         <div class="container">
@@ -37,21 +36,14 @@
                     {% for d in data %}
                         <tr>
                             <td>
-                                <form action="#">
-                                    <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span></span>
-                                    </label>
-                                    </p>
-                                </form>
+                                <a class="btn-floating btn-small waves-effect waves-light green" href="/{{d.id}}/edit_pembayaran_biaya"><i class="material-icons">edit</i></a>            
                             </td>
                             <td class="center">{{d.tanggal}}</td>
                             <td>{{d.keterangan}}</td>
                             <td>{{d.dibayar}}</td>
                             <td>{{d.catatan}}</td>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_pembayaran_biaya"><i class="material-icons">edit</i></a>            
+                                <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus8"><i class="material-icons">delete_forever</i></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -61,7 +53,7 @@
                         <th></th>
                         <th></th>
                         <th>Jumlah</th>
-                        <th>Rp 910.000</th>
+                        <th>{{jum_pem}}</th>
                         <th></th>
                         <th></th>
                     </tr>

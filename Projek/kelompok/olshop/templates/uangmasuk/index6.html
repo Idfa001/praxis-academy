@@ -23,7 +23,7 @@
                         <th></th>
                         <th></th>
                         <th>Saldo Piutang</th>
-                        <th>Rp {{total_saldo}}</th>
+                        <th>Rp {{saldo_total1}}</th>
                     </tr>
                 </tbody>
                 <tbody>
@@ -31,7 +31,7 @@
                         <th></th>
                         <th></th>
                         <th>Uang Diterima</th>
-                        <th>Rp {{total_terima}}</th>
+                        <th>Rp {{saldo_total2}}</th>
                     </tr>
                 </tbody>
             </table>
@@ -61,7 +61,33 @@
                                 <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_p_kredit_terima">terima</a>
                             </td>
                         </tr>
-                {% endfor %}
+                    {% endfor %}
+                    {% for d in data1 %}
+                        <tr>
+                            <td class="center">{{d.tanggal}}</td>
+                            <td class="center">{{d.catatan}}</td>
+                            <td class="center">Rp {{d.piutang}}</td>
+                            <td class="center">Rp {{d.terima}}</td>
+                            <td class="center">Rp {{d.saldo}}</td>
+                            <td class="right">
+                                <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_p_kredit_terima1">terima</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    {% for d in data2 %}
+                    <tr>
+                        <td class="center">{{d.tanggal}}</td>
+                        <td class="center">{{d.catatan}}</td>
+                        <td class="center">Rp {{d.piutang}}</td>
+                        <td class="center">Rp {{d.terima}}</td>
+                        <td class="center">Rp {{d.saldo}}</td>
+                        <td class="right">
+                            <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_pend_lain_terima">terima</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
             </table>
        </div>
 

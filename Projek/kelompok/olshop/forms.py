@@ -5,7 +5,7 @@ from . import models
 class penjualan1f(ModelForm):
     class Meta:
         model = models.penjualan1m
-        exclude = []
+        exclude = [ 'saldo_awal' ]
 
 class penjualan2f(ModelForm):
     class Meta:
@@ -15,7 +15,7 @@ class penjualan2f(ModelForm):
 class penjualan3f(ModelForm):
     class Meta:
         model = models.penjualan3m
-        exclude = []
+        exclude = [ 'terima' ]
 
 class utangf(ModelForm):
     class Meta:
@@ -25,7 +25,7 @@ class utangf(ModelForm):
 class pend_lainf(ModelForm):
     class Meta:
         model = models.pend_lainm
-        exclude = []
+        exclude = [ 'terima' ]
 
 class pem_tunaif(ModelForm):
     class Meta:
@@ -35,12 +35,12 @@ class pem_tunaif(ModelForm):
 class pem_kreditf(ModelForm):
     class Meta:
         model = models.pem_kreditm
-        exclude = []
+        exclude = [ 'dibayar1' ]
 
 class pem_lainf(ModelForm):
     class Meta:
         model = models.pem_lainm
-        exclude = []
+        exclude = [ 'dibayar2' ]
 
 class pembayaran_biayaf(ModelForm):
     class Meta:
@@ -56,3 +56,4 @@ class barangf(ModelForm):
     class Meta:
         model = models.barangm
         exclude = []
+
