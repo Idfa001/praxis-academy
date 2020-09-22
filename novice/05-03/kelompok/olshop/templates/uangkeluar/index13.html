@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>The Materialize Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script>             
+   </head>
+   
+   <body>
+        <nav class="center deep-orange">Pembayaran Utang</nav><br>
+        <div class="container">
+            <table class="striped">
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Saldo Utang</th>
+                        <th>Rp {{jumlah1}}</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Uang Dibayar</th>
+                        <th>Rp {{jumlah2}}</th>
+                    </tr>
+                </tbody>
+            </table>
+                
+        </div>
+        <div class="container">
+            <table class="highlight responsive-table">
+                <thead class="orange accent-2">
+                <tr>
+                    <th class="center">Tanggal</th>
+                    <th>Kreditur</th>
+                    <th>Utang</th>
+                    <th>Dibayar</th>
+                    <th>Saldo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    {% for d in data %}
+                <tr>
+                    <td class="center">01/01/2021</td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.jum_utang}}</td>
+                    <td>Rp {{d.dibayar}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+                {% for d in data1 %}
+                <tr>
+                    <td class="center">01/01/2021</td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.jumlah}}</td>
+                    <td>Rp {{d.dibayar1}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang1">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for d in data2 %}
+                <tr>
+                    <td class="center">01/01/2021</td>
+                    <td>{{d.catatan}}</td>
+                    <td>Rp {{d.utang}}</td>
+                    <td>Rp {{d.dibayar2}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang2">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+
+                </tbody>
+            </table>
+       </div>
+
+   </body>
+</html>
