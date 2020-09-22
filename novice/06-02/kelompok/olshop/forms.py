@@ -50,7 +50,7 @@ class pembayaran_biayaf(ModelForm):
 class pembayaran_lainf(ModelForm):
     class Meta:
         model = models.pembayaran_lainm
-        exclude = []
+        exclude = [ 'dibayar3' ]
 
 class barangf(ModelForm):
     class Meta:

@@ -25,9 +25,10 @@
                 <tr>
                     <th></th>
                     <th class="center">Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Dibayar</th>
-                    <th>Utang</th>
+                    <th class="center">ID</th>
+                    <th class="center">Keterangan</th>
+                    <th class="center">Dibayar</th>
+                    <th class="center">Utang</th>
                     <th class="center">Kreditur</th>
                     <th></th>
                 </tr>
@@ -39,11 +40,12 @@
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_pem_lain"><i class="material-icons">edit</i></a>            
                             </td>
-                            <td class="center">{{d.tanggal}}</td>
-                            <td>{{d.keterangan}}</td>
-                            <td>Rp {{d.dibayar}}</td>
-                            <td>Rp {{d.utang}}</td>
-                            <td>{{d.catatan}}</td>
+                            <td class="center">{{d.tanggal1}}</td>
+                            <td class="center">PbL-{{d.id}}</td>
+                            <td class="center">{{d.keterangan}}</td>
+                            <td class="center">Rp {{d.dibayar}}</td>
+                            <td class="center">Rp {{d.utang}}</td>
+                            <td class="center">{{d.catatan}}</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus7"><i class="material-icons">delete_forever</i></a>
                             </td>
@@ -54,9 +56,10 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>Jumlah</th>
-                        <th>{{jum_pem}}</th>
-                        <th>{{jum_pem1}}</th>
+                        <th></th>
+                        <th class="center">Jumlah</th>
+                        <th class="center">Rp {{jum_pem}}</th>
+                        <th class="center">Rp {{jum_pem1}}</th>
                         <th></th>
                         <th></th>
                     </tr>

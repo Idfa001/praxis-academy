@@ -26,8 +26,9 @@
                 <tr>
                     <th></th>
                     <th class="center">Tanggal</th>
+                    <th class="center">ID</th>
                     <th class="center">Keterangan</th>
-                    <th class="center">Jumlah</th>
+                    <th class="center">Dibayar</th>
                     <th class="center">Catatan</th>
                     <th></th>
                 </tr>
@@ -40,9 +41,10 @@
                                 <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_pem_tunai"><i class="material-icons">edit</i></a>            
 
                             </td>
-                            <td class="center">{{d.tanggal}}</td>
-                            <td  class="center">{{d.keterangan}}</td>
-                            <td class="right">Rp {{d.jumlah}}</td>
+                            <td class="center">{{d.tanggal1}}</td>
+                            <td class="center">PbT-{{d.id}}</td>
+                            <td class="center">{{d.keterangan}}</td>
+                            <td class="center">Rp {{d.jumlah}}</td>
                             <td class="center">{{d.catatan}}</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus5"><i class="material-icons">delete_forever</i></a>
@@ -54,8 +56,9 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>Uang dibayar</th>
-                        <th>Rp {{jum_pem}}</th>
+                        <th></th>
+                        <th class="center">Uang dibayar</th>
+                        <th class="center">Rp {{jum_pem}}</th>
                         <th></th>
                         <th></th>
                     </tr>

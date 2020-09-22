@@ -25,9 +25,10 @@
                 <tr>
                     <th></th>
                     <th class="center">Tanggal</th>
+                    <th class="center">ID</th>
                     <th class="center">Keterangan</th>
                     <th class="center">Utang</th>
-                    <th class="center">Kreditur</th>
+                    <th class="center">Catatan</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -38,7 +39,8 @@
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_pem_kredit"><i class="material-icons">edit</i></a>            
                             </td>
-                            <td class="center">{{d.tanggal}}</td>
+                            <td class="center">{{d.tanggal1}}</td>
+                            <td class="center">PbK-{{d.id}}</td>
                             <td class="center">{{d.keterangan}}</td>
                             <td class="center">Rp {{d.jumlah}}</td>
                             <td class="center">{{d.catatan}}</td>
@@ -50,6 +52,7 @@
                 </tbody>
                 <thead class="orange accent-2">
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th class="center">Utang diterima</th>

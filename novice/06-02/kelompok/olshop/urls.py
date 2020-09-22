@@ -71,6 +71,7 @@ urlpatterns = [
     path('<id>/edit_butang/',views.edit_butang),
     path('<id>/edit_butang1/',views.edit_butang1),
     path('<id>/edit_butang2/',views.edit_butang2),
+    path('<id>/edit_butang3/',views.edit_butang3),
     path('<id>/edit_saldoawal/',views.edit_saldoawal),
 
 

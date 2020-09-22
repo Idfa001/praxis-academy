@@ -42,7 +42,8 @@
                 <thead class="orange accent-2">
                 <tr>
                     <th class="center">Tanggal</th>
-                    <th>Kreditur</th>
+                    <th>Catatan</th>
+                    <th>ID</th>
                     <th>Utang</th>
                     <th>Dibayar</th>
                     <th>Saldo</th>
@@ -54,8 +55,9 @@
                 <tbody>
                     {% for d in data %}
                 <tr>
-                    <td class="center">01/01/2021</td>
+                    <td class="center">{{d.tanggal1}}</td>
                     <td>{{d.catatan}}</td>
+                    <td>Utg-{{d.id}}</td>
                     <td>Rp {{d.jum_utang}}</td>
                     <td>Rp {{d.dibayar}}</td>
                     <td>Rp {{d.saldo}}</td>
@@ -68,8 +70,9 @@
 
                 {% for d in data1 %}
                 <tr>
-                    <td class="center">01/01/2021</td>
+                    <td class="center">{{d.tanggal1}}</td>
                     <td>{{d.catatan}}</td>
+                    <td>PbK-{{d.id}}</td>
                     <td>Rp {{d.jumlah}}</td>
                     <td>Rp {{d.dibayar1}}</td>
                     <td>Rp {{d.saldo}}</td>
@@ -81,14 +84,29 @@
                 {% endfor %}
                 {% for d in data2 %}
                 <tr>
-                    <td class="center">01/01/2021</td>
+                    <td class="center">{{d.tanggal1}}</td>
                     <td>{{d.catatan}}</td>
+                    <td>PbL-{{d.id}}</td>
                     <td>Rp {{d.utang}}</td>
                     <td>Rp {{d.dibayar2}}</td>
                     <td>Rp {{d.saldo}}</td>
                     <td></td>
                     <td class="right">
                         <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang2">bayar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for d in data3 %}
+                <tr>
+                    <td class="center">{{d.tanggal1}}</td>
+                    <td>{{d.catatan}}</td>
+                    <td>PrL-{{d.id}}</td>
+                    <td>Rp {{d.utang}}</td>
+                    <td>Rp {{d.dibayar3}}</td>
+                    <td>Rp {{d.saldo}}</td>
+                    <td></td>
+                    <td class="right">
+                        <a class="waves-effect waves-light btn-small green" href="/{{d.id}}/edit_butang3">bayar</a>
                     </td>
                 </tr>
                 {% endfor %}

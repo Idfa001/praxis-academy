@@ -21,11 +21,12 @@
             <a class="btn-floating btn-small waves-effect waves-light blue right " href="/penjualan2"><i class="material-icons">add</i></a>
         </div>
         <div class="container">
-            <table class="highlight responsive-table">
+            <table class="highlight">
                 <thead>
                     <tr>
-                        <th>Pilih</th>
+                        <th></th>
                         <th class="center">Tanggal</th>
+                        <th class="center">ID</th>
                         <th class="center">Barang</th>
                         <th class="center">Harga</th>
                         <th class="center">Kuantitas</th>
@@ -43,9 +44,10 @@
                                 </td>
                                 
                                 <td class="center">{{d.tanggal1}}</td>
+                                <td class="center">PjK-{{d.id}}</td>
                                 <td class="center">{{d.barang}}</td>
                                 <td class="center">Rp {{d.barang.harga_jual}}</td>
-                                <th class="center">{{d.kuantitas}}</th>
+                                <td class="center">{{d.kuantitas}}</td>
                                 <td class="right">Rp {{d.total}}</td>
                                 <td class="center">{{d.catatan}}</td>
                                 <td>
@@ -58,10 +60,11 @@
                     <tr>
                         <th></th>
                         <th></th>
+                        <th></th>
                         <th>Piutang diterima</th>
                         <th></th>
                             <th></th>
-                        <td class="right">Rp {{total}}</td>
+                        <th class="right">Rp {{total}}</th>
                         <th></th>
                         <th></th>
                     </tr>

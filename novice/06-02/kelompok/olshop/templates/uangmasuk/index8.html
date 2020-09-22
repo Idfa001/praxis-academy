@@ -26,6 +26,7 @@
                 <tr>
                     <th></th>
                     <th class="center">Tanggal</th>
+                    <th class="center">ID</th>
                     <th>Keterangan</th>
                     <th>Kas</th>
                     <th>Piutang</th>
@@ -40,7 +41,8 @@
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_pend_lain"><i class="material-icons">edit</i></a>            
                             </td>
-                            <td class="center">{{d.tanggal}}</td>
+                            <td class="center">{{d.tanggal1}}</td>
+                            <td class="center">PdL-{{d.id}}</td>
                             <td>{{d.keterangan}}</td>
                             <td>{{d.jumlah}}</td>
                             <td>{{d.piutang}}</td>
@@ -53,6 +55,7 @@
                 </tbody>
                 <thead class="blue lighten-3">
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th>Uang diterima</th>

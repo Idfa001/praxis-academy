@@ -26,9 +26,9 @@
                 <tr>
                     <th>Pilih</th>
                     <th class="center">Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Jumlah</th>
+                    <th class="center">ID</th>
                     <th class="center">Catatan</th>
+                    <th class="center">Jumlah</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -39,10 +39,10 @@
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light green left" href="/{{d.id}}/edit_utang"><i class="material-icons">edit</i></a>            
                             </td>
-                            <td class="center">{{d.tanggal}}</td>
-                            <td>{{d.keterangan}}</td>
-                            <td>Rp {{d.jum_utang}}</td>
-                            <td>{{d.catatan}}</td>
+                            <td class="center">{{d.tanggal1}}</td>
+                            <td class="center">Utg-{{d.id}}</td>
+                            <td class="center">{{d.catatan}}</td>
+                            <td class="center">Rp {{d.jum_utang}}</td>
                             <td>
                                 <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus4"><i class="material-icons">delete_forever</i></a>
                             </td>
@@ -53,9 +53,9 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>Uang diterima</th>
-                        <th>Rp {{jum_utang}}</th>
                         <th></th>
+                        <th class="center">Uang diterima</th>
+                        <th class="center">Rp {{jum_utang}}</th>
                         <th></th>
                     </tr>
                 </thead>
