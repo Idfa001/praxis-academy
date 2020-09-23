@@ -11,6 +11,13 @@ def penjualan(req):
     return render(req, 'uangmasuk/index2.html')
 
 def penjualan_tunai(req):
+    form_input = forms.penjualan1f()
+    if req.POST:
+        form_input = forms.penjualan1f(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+            return redirect('/penjualan_tunai')
+
     penjualan1 = models.penjualan1m.objects.all()
     total = 0
     for p in penjualan1:
@@ -18,6 +25,7 @@ def penjualan_tunai(req):
     return render(req, 'penjualan/index3.html', {
         'data': penjualan1,
         'total': total,
+        'form': form_input,
     })
 
 def penjualan_kredit(req):

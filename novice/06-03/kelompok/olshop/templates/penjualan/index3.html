@@ -20,7 +20,7 @@
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
   <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://jagowebdev.com/wp-content/demo/10-desain-tabel-dengan-css/style-3.css?r=1600848739">
-
+  
 </head>
 
 <body id="page-top">
@@ -192,8 +192,6 @@
             <div class="page-header" align="center">
               <h2>PENJUALAN TUNAI</h2>      
             </div>
-
-            <!-- <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a> -->
         </div>
         <div class="table"
         <div class="container">
@@ -208,9 +206,40 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <a class="btn-floating btn-small waves-effect waves-light blue" href="/penjualan1"><i class="material-icons">add</i></a>
+                            <a class="btn-floating btn-small waves-effect waves-light blue" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></a>
                         </td>
                     </tr>
+                    <div class="container">
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Tambah penjualan tunai</h4>
+                            </div>
+                            <div class="modal-body">
+                              <form action="" method="POST" class="mt-3">
+                                {% load crispy_forms_tags %}
+                                {% csrf_token %}
+                                
+                                {{ form|crispy }}
+                                <br>
+                                <button class="btn btn-primary btn-xs">Tambah</button>
+                        
+                              </form>
+                      
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                    </div>
                 </thead>
 
                 <thead>
@@ -258,6 +287,7 @@
                     </tr>
                 </thead>
             </table>
+
        </div>
 
        <script>
