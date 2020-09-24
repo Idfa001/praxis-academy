@@ -5,7 +5,118 @@ from . import models
 
 
 def halamandepan(req):
-    return render(req, 'hal1/index1.html')
+    
+    penjualan1 = models.penjualan1m.objects.all()
+    total1 = 0
+    for p in penjualan1:
+        total1 += p.total()
+
+    penjualan3 = models.penjualan3m.objects.all()
+    total2 = 0
+    for p in penjualan3:
+      total2 += p.jumlah()
+
+    penjualan2 = models.penjualan2m.objects.all()
+    penjualan3 = models.penjualan3m.objects.all()
+    pend = models.pend_lainm.objects.all()
+
+    total_terima = 0   
+ 
+    for p in penjualan2:
+      total_terima += p.terima
+
+    total_terima1 = 0
+
+    for p in penjualan3:
+      total_terima1 += p.terima
+
+    total_terima2 = 0   
+ 
+    for p in pend:
+      total_terima2 += p.terima
+
+    total3 = total_terima + total_terima1 + total_terima2
+
+    utang = models.utangm.objects.all()
+    total4 = 0
+    for p in utang:
+        total4 += p.jum_utang()
+
+    pend = models.pend_lainm.objects.all()
+    total5 = 0
+    for p in pend:
+      total5 += p.jum_pend()
+
+    pem = models.pem_tunaim.objects.all()
+    total6 = 0
+    for p in pem:
+      total6 += p.jum_pem()
+
+    pem1 = models.pem_lainm.objects.all()
+    total7 = 0
+    for p in pem1:
+      total7 += p.jum_pem()
+
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_lainm.objects.all()
+
+    total_dibayar = 0
+
+    for u in utang:
+        total_dibayar += u.dibayar
+
+    total_dibayar1 = 0
+
+    for u in pem:
+        total_dibayar1 += u.dibayar1
+
+    total_dibayar2 = 0
+
+    for u in pem1:
+        total_dibayar2 += u.dibayar2
+
+    total8 = total_dibayar + total_dibayar1 + total_dibayar2
+
+    bayar = models.pembayaran_biayam.objects.all()
+    total9 = 0
+    for p in bayar:
+      total9 += p.jum_pem()
+
+    bayar2 = models.pembayaran_lainm.objects.all()
+    total10 = 0
+    for p in bayar2:
+        total10 += p.jum1()
+
+    sawal = models.penjualan1m.objects.all()
+    saldo1 = 0
+    for p in sawal:
+        saldo1 += p.saldo_awal
+
+    total_semua1 = total1 + total2 + total3 + total4 + total5
+    total_semua2 = total6 + total7 + total8 + total9 + total10
+    laba_rugi = total_semua1 - total_semua2
+    akhir = saldo1 + laba_rugi
+    print(sawal)
+
+    return render(req, 'hal1/index1.html', {
+        'penjualan1': penjualan1.first(),
+        'total1': total1,
+        'total2': total2,
+        'total3': total3,   
+        'total4': total4,
+        'total5': total5,
+        'total6': total6,
+        'total7': total7,
+        'total8': total8,
+        'total9': total9,
+        'total10': total10,
+        'total_semua1': total_semua1,
+        'total_semua2': total_semua2,
+        'laba_rugi': laba_rugi,
+        'saldo': saldo1,
+        'akhir': akhir,
+    })
 
 def penjualan(req):
     return render(req, 'uangmasuk/index2.html')
@@ -523,7 +634,7 @@ def barangv(req):
 #edit
 def edit_p_tunai(req, id):
     if req.POST:
-        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], catatan=req.POST['catatan'])
+        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'])
         return redirect('/penjualan_tunai')
 
     penjualan = models.penjualan1m.objects.filter(pk=id).first()
