@@ -52,7 +52,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -61,9 +60,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/penjualan">Penjualan</a>
-            <a class="collapse-item" href="cards.html">Piutang</a>
-            <a class="collapse-item" href="cards.html">Utang</a>
-            <a class="collapse-item" href="cards.html">Pendapata Lain-Lain</a>
+            <a class="collapse-item" href="/piutang">Piutang</a>
+            <a class="collapse-item" href="/utang">Utang</a>
+            <a class="collapse-item" href="/pend_lain">Pendapata Lain-Lain</a>
           </div>
         </div>
       </li>
@@ -76,10 +75,10 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Pembelian</a>
-            <a class="collapse-item" href="utilities-border.html">Pembayaran Utang</a>
-            <a class="collapse-item" href="utilities-animation.html">Pembayaran Biaya</a>
-            <a class="collapse-item" href="utilities-other.html">Pembayaran Lain-lain</a>
+            <a class="collapse-item" href="/pembelian">Pembelian</a>
+            <a class="collapse-item" href="/pembayaran_utang">Pembayaran Utang</a>
+            <a class="collapse-item" href="/pembayaran_biaya">Pembayaran Biaya</a>
+            <a class="collapse-item" href="/pembayaran_lain">Pembayaran Lain-lain</a>
           </div>
         </div>
       </li>
@@ -91,9 +90,9 @@
         </a>
         <div id="collapsekeperluan" class="collapse" aria-labelledby="headingkeperluan" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Laporan Laba/Rugi</a>
+            <a class="collapse-item" href="/lr">Laporan Laba/Rugi</a>
             <a class="collapse-item" href="utilities-border.html">Daftar Pemasok</a>
-            <a class="collapse-item" href="utilities-animation.html">Daftar Barang Dijual</a>
+            <a class="collapse-item" href="/barang">Daftar Barang Dijual</a>
             <a class="collapse-item" href="utilities-other.html">Daftar Pemberi Utang</a>
           </div>
         </div>
@@ -209,7 +208,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <a class="btn-floating btn-small waves-effect waves-light blue" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></a>
+                            <a href="#" class="btn-floating btn-small waves-effect waves-light blue" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></a>
                         </td>
                     </tr>
                     <div class="container">
@@ -220,8 +219,8 @@
                           <!-- Modal content-->
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title">Tambah penjualan tunai</h4>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <h4 class="modal-title">Tambah penjualan</h4>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 
                             </div>
                             <div class="modal-body">
@@ -248,15 +247,15 @@
 
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Ubah</th>
                         <th class="center">Tanggal</th>
                         <th class="center">ID</th>
                         <th class="center">Barang</th>
                         <th class="center">Harga</th>
                         <th class="center">Kuantitas</th>
-                        <th class="center">Jumlah</th>
+                        <th class="center">Piutang</th>
                         <th class="center">Catatan</th>
-                        <th></th>
+                        <th>Hapus</th>
                     </tr>
                     </thead>
     
@@ -267,11 +266,11 @@
                                     <a class="btn-floating btn-small waves-effect waves-light green right" href="/{{d.id}}/edit_p_kredit"><i class="material-icons">edit</i></a>            
                                 </td>
                                 
-                                <td class="center">{{d.tanggal}}</td>
+                                <td class="center">{{d.tanggal1}}</td>
                                 <td class="center">PjK-{{d.id}}</td>
                                 <td class="center">{{d.barang}}</td>
                                 <td class="center">Rp {{d.barang.harga_jual}}</td>
-                                <td class="center">{{d.kuantitas}}</td>
+                                <td class="center">{{d.kuantitas}} pcs</td>
                                 <td class="right">Rp {{d.total}}</td>
                                 <td class="center">{{d.catatan}}</td>
                                 <td>
@@ -283,9 +282,9 @@
                 <thead class="blue lighten-3">
                     <tr>
                         <th></th>
+                        <th>Jumlah</th>
                         <th></th>
                         <th></th>
-                        <th>Piutang diterima</th>
                         <th></th>
                             <th></th>
                         <th class="right">Rp {{total}}</th>

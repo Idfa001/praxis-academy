@@ -5,7 +5,6 @@ from . import models
 
 
 def halamandepan(req):
-    
     penjualan1 = models.penjualan1m.objects.all()
     total1 = 0
     for p in penjualan1:
@@ -46,6 +45,29 @@ def halamandepan(req):
     total5 = 0
     for p in pend:
       total5 += p.jum_pend()
+    jumlah_masuk = total1 + total2 + total3 + total4 + total5
+
+    penjualan2 = models.penjualan2m.objects.all()
+    penjualan3 = models.penjualan3m.objects.all()
+    pend = models.pend_lainm.objects.all()
+
+
+    total_saldo = 0
+ 
+    for p in penjualan2:
+      total_saldo += p.saldo()
+
+    total_saldo1 = 0
+
+    for p in penjualan3:
+      total_saldo1 += p.saldo()
+
+    total_saldo2 = 0
+ 
+    for p in pend:
+      total_saldo2 += p.saldo()
+
+    jumlah_piutang = total_saldo + total_saldo1 + total_saldo2
 
     pem = models.pem_tunaim.objects.all()
     total6 = 0
@@ -57,11 +79,13 @@ def halamandepan(req):
     for p in pem1:
       total7 += p.jum_pem()
 
+    # total8 pembayaran utang
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
     pem1 = models.pem_lainm.objects.all()
 
     total_dibayar = 0
+
 
     for u in utang:
         total_dibayar += u.dibayar
@@ -88,34 +112,41 @@ def halamandepan(req):
     for p in bayar2:
         total10 += p.jum1()
 
-    sawal = models.penjualan1m.objects.all()
-    saldo1 = 0
-    for p in sawal:
-        saldo1 += p.saldo_awal
+    jumlah_keluar = total6 + total7 + total8 + total9 + total10
 
-    total_semua1 = total1 + total2 + total3 + total4 + total5
-    total_semua2 = total6 + total7 + total8 + total9 + total10
-    laba_rugi = total_semua1 - total_semua2
-    akhir = saldo1 + laba_rugi
-    print(sawal)
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_lainm.objects.all()
+    bayar = models.pembayaran_lainm.objects.all()
 
+    total_saldo = 0
+
+    for u in utang:
+        total_saldo += u.saldo()
+
+    total_saldo1 = 0
+
+    for u in pem:
+        total_saldo1 += u.saldo()
+
+    total_saldo2 = 0
+
+    for u in pem1:
+        total_saldo2 += u.saldo()
+
+    total_saldo3 = 0
+
+    for u in bayar:
+        total_saldo3 += u.saldo()
+
+    jumlah_utang = total_saldo + total_saldo1 + total_saldo2 + total_saldo3
+
+    
     return render(req, 'hal1/index1.html', {
-        'penjualan1': penjualan1.first(),
-        'total1': total1,
-        'total2': total2,
-        'total3': total3,   
-        'total4': total4,
-        'total5': total5,
-        'total6': total6,
-        'total7': total7,
-        'total8': total8,
-        'total9': total9,
-        'total10': total10,
-        'total_semua1': total_semua1,
-        'total_semua2': total_semua2,
-        'laba_rugi': laba_rugi,
-        'saldo': saldo1,
-        'akhir': akhir,
+        'jumlah_masuk': jumlah_masuk,
+        'jumlah_utang':jumlah_utang,
+        'jumlah_piutang': jumlah_piutang,
+        'jumlah_keluar': jumlah_keluar,
     })
 
 def penjualan(req):
@@ -258,6 +289,12 @@ def pembelian(req):
     return render(req, 'uangkeluar/index9.html')
 
 def pembelian_tunai(req):
+    form_input = forms.pem_tunaif()
+    if req.POST:
+        form_input = forms.pem_tunaif(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/pembelian_tunai')
     pem = models.pem_tunaim.objects.all()
     jum_pem = 0
     for i in pem:
@@ -265,9 +302,17 @@ def pembelian_tunai(req):
     return render(req, 'pembelian/index10.html', {
         'data': pem,
         'jum_pem': jum_pem,
+        'form': form_input,
     })
     
 def pembelian_kredit(req):
+    form_input = forms.pem_kreditf()
+    if req.POST:
+        form_input = forms.pem_kreditf(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/pembelian_kredit')
+        
     pem = models.pem_kreditm.objects.all()
     jum_pem = 0
     for i in pem:
@@ -275,9 +320,16 @@ def pembelian_kredit(req):
     return render(req, 'pembelian/index11.html', {
         'data': pem,
         'jum_pem': jum_pem,
+        'form': form_input,
     })
 
 def pembelian_lain(req):
+    form_input = forms.pem_lainf()
+    if req.POST:
+        form_input = forms.pem_lainf(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/pembelian_lain')
     pem = models.pem_lainm.objects.all()
     jum_pem = 0
     jum_pem1 = 0
@@ -288,6 +340,7 @@ def pembelian_lain(req):
         'data': pem,
         'jum_pem': jum_pem,
         'jum_pem1': jum_pem1,
+        'form': form_input,
     })
 
 
@@ -343,6 +396,12 @@ def pembayaran_utang(req):
     })
 
 def pembayaran_biaya(req):
+    form_input = forms.pembayaran_biayaf()
+    if req.POST:
+        form_input = forms.pembayaran_biayaf(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/pembayaran_biaya')
     bayar = models.pembayaran_biayam.objects.all()
     jum_pem = 0
     for i in bayar:
@@ -351,9 +410,16 @@ def pembayaran_biaya(req):
     return render(req, 'uangkeluar/index14.html', {
         'data': bayar,
         'jum_pem': jum_pem,
+        'form': form_input,
     })
 
 def pembayaran_lain(req):
+    form_input = forms.pembayaran_lainf()
+    if req.POST:
+        form_input = forms.pembayaran_lainf(req.POST)
+        if form_input.is_valid():
+            form_input.save()
+        return redirect('/pembayaran_lain')
     bayar = models.pembayaran_lainm.objects.all()
     jum1 = 0
     jum2 = 0
@@ -364,6 +430,7 @@ def pembayaran_lain(req):
         'data': bayar,
         'jum1': jum1,
         'jum2': jum2,
+        'form': form_input,
     })
 
 def barang(req):
@@ -634,7 +701,7 @@ def barangv(req):
 #edit
 def edit_p_tunai(req, id):
     if req.POST:
-        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'])
+        models.penjualan1m.objects.filter(pk=id).update(kuantitas=req.POST['kuantitas'], catatan=req.POST['catatan'])
         return redirect('/penjualan_tunai')
 
     penjualan = models.penjualan1m.objects.filter(pk=id).first()

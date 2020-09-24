@@ -20,9 +20,6 @@
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
   <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://jagowebdev.com/wp-content/demo/10-desain-tabel-dengan-css/style-3.css?r=1600848739">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
 </head>
 
@@ -37,7 +34,7 @@
       <!-- Sidebar - Brand -->      
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
-
+          <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">CATATAN KEUANGAN</div>
       </a>
@@ -48,23 +45,24 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="/">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
           <span>Uang Masuk</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/penjualan">Penjualan</a>
-            <a class="collapse-item" href="cards.html">Piutang</a>
-            <a class="collapse-item" href="cards.html">Utang</a>
-            <a class="collapse-item" href="cards.html">Pendapata Lain-Lain</a>
+            <a class="collapse-item" href="/piutang">Piutang</a>
+            <a class="collapse-item" href="/utang">Utang</a>
+            <a class="collapse-item" href="/pend_lain">Pendapata Lain-Lain</a>
           </div>
         </div>
       </li>
@@ -72,29 +70,29 @@
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-
+          <i class="fas fa-fw fa-wrench"></i>
           <span>Uang Keluar</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Pembelian</a>
-            <a class="collapse-item" href="utilities-border.html">Pembayaran Utang</a>
-            <a class="collapse-item" href="utilities-animation.html">Pembayaran Biaya</a>
-            <a class="collapse-item" href="utilities-other.html">Pembayaran Lain-lain</a>
+            <a class="collapse-item" href="/pembelian">Pembelian</a>
+            <a class="collapse-item" href="/pembayaran_utang">Pembayaran Utang</a>
+            <a class="collapse-item" href="/pembayaran_biaya">Pembayaran Biaya</a>
+            <a class="collapse-item" href="/pembayaran_lain">Pembayaran Lain-lain</a>
           </div>
         </div>
       </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsekeperluan" aria-expanded="true" aria-controls="collapseUtilities">
-
+          <i class="fas fa-fw fa-wrench"></i>
           <span>Keperluan</span>
         </a>
         <div id="collapsekeperluan" class="collapse" aria-labelledby="headingkeperluan" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Laporan Laba/Rugi</a>
+            <a class="collapse-item" href="/lr">Laporan Laba/Rugi</a>
             <a class="collapse-item" href="utilities-border.html">Daftar Pemasok</a>
-            <a class="collapse-item" href="utilities-animation.html">Daftar Barang Dijual</a>
+            <a class="collapse-item" href="/barang">Daftar Barang Dijual</a>
             <a class="collapse-item" href="utilities-other.html">Daftar Pemberi Utang</a>
           </div>
         </div>
@@ -129,7 +127,7 @@
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
-
+                  <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
             </div>
@@ -141,7 +139,7 @@
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+                <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
@@ -150,7 +148,7 @@
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
-
+                        <i class="fas fa-search fa-sm"></i>
                       </button>
                     </div>
                   </div>
@@ -208,11 +206,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        
                         <td>
-                            <a href="" class="btn-floating btn-small waves-effect waves-light blue" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></a>
-                          </td>
-
+                            <a href="#" class="btn-floating btn-small waves-effect waves-light blue" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></a>
+                        </td>
                     </tr>
                     <div class="container">
                       <!-- Modal -->
@@ -222,8 +218,8 @@
                           <!-- Modal content-->
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title">Tambah penjualan tunai</h4>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <h4 class="modal-title">Tambah penjualan</h4>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 
                             </div>
                             <div class="modal-body">
@@ -256,7 +252,7 @@
                     <th class="center">Barang</th>
                     <th class="center">Harga</th>
                     <th class="center">Kuantitas</th>
-                    <th class="center">Jumlah</th>
+                    <th class="center">Uang diterima</th>
                     <th>Hapus</th>
                 </tr>
                 </thead>
@@ -271,7 +267,7 @@
                             <td class="center">PjT-{{d.id}}</td>
                             <td class="center">{{d.barang}}</td>
                             <td class="center">Rp {{d.barang.harga_jual}}</td>
-                            <td class="center">{{d.kuantitas}}</td>
+                            <td class="center">{{d.kuantitas}} pcs</td>
                             <td class="right">Rp {{d.total}}</td>
                             <!-- <td class="center">{{d.catatan}}</td> -->
                             <td>
@@ -281,15 +277,15 @@
                     {% endfor %}
                 </tbody>
                 <thead class="blue lighten-3">
-                    <tr id="td1">
-                        <td></td>
-                        <td>Uang diterima</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td ></td>
-                        <td class="right">Rp {{total}}</td>
-                        <td></td>
+                    <tr id="t1">
+                        <th></th>
+                        <th>Jumlah</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="right">Rp {{total}}</th>
+                        <th></th>
                     </tr>
                 </thead>
             </table>
