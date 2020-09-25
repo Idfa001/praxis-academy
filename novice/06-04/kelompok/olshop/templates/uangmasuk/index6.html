@@ -19,7 +19,7 @@
   <link href="{% static 'css/table.css' %}" rel="stylesheet">
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
   <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://jagowebdev.com/wp-content/demo/10-desain-tabel-dengan-css/style-3.css?r=1600848739">
+ 
   
 </head>
 
@@ -52,7 +52,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -184,102 +183,127 @@
           </ul>
 
         </nav>
-   
-   <body>
-    <div class="container">
-        <div class="page-header" align="center">
-          <h2>PIUTANG</h2>      
-        </div><br>
 
-        <!-- <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a> -->
-    </div>
-        <div class="table"
+        <!-- End of Topbar -->
 
+        <!-- Begin Page Content -->
         <div class="container">
-            
-            <table class="striped">
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Saldo Piutang</th>
-                        <th>Rp {{saldo_total1}}</th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Uang Diterima</th>
-                        <th>Rp {{saldo_total2}}</th>
-                    </tr>
-                </tbody>
-            </table>
-                
-        </div>
-        <div class="table"
+            <div class="page-header" align="center">
+              <h2>PIUTANG</h2>      
+            </div>
 
-        <div class="container">
-            <table class="highlight">
-                <thead class="blue lighten-3">
-                <tr>
-                    <th class="center">Tanggal</th>
-                    <th class="center">ID</th>
-                    <th class="center">Catatan</th>
-                    <th class="center">Piutang</th>
-                    <th class="center">Diterima</th>
-                    <th class="center">Saldo</th>
-                    <th class="center"></th>
-                </tr>
-                </thead>
-                <tbody>
-                    {% for d in data %}
-                        <tr>
-                            <td class="center">{{d.tanggal}}</td>
-                            <td class="center">PjK-{{d.id}}</td>
-                            <td class="center">{{d.catatan}}</td>
-                            <td class="center">Rp {{d.total}}</td>
-                            <td class="center">Rp {{d.terima}}</td>
-                            <td class="center">Rp {{d.saldo}}</td>
-                            <td class="right">
-                                <a href="/{{d.id}}/edit_p_kredit_terima">
-                                    <button type="button" class="btn btn-outline-success" >Terima</button>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    {% for d in data1 %}
-                        <tr>
-                            <td class="center">{{d.tanggal}}</td>
-                            <td class="center">PjL-{{d.id}}</td>
-                            <td class="center">{{d.catatan}}</td>
-                            <td class="center">Rp {{d.piutang}}</td>
-                            <td class="center">Rp {{d.terima}}</td>
-                            <td class="center">Rp {{d.saldo}}</td>
-                            <td class="right">
-                                <a href="/{{d.id}}/edit_p_kredit_terima1">
-                                    <button type="button" class="btn btn-outline-success" >Terima</button>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    {% for d in data2 %}
-                    <tr>
-                        <td class="center">{{d.tanggal}}</td>
-                        <td class="center">PdL-{{d.id}}</td>
-                        <td class="center">{{d.catatan}}</td>
-                        <td class="center">Rp {{d.piutang}}</td>
-                        <td class="center">Rp {{d.terima}}</td>
-                        <td class="center">Rp {{d.saldo}}</td>
-                        <td class="right">
-                            <a href="/{{d.id}}/edit_pend_lain_terima">
-                                <button type="button" class="btn btn-outline-success" >Terima</button>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
+            <!-- <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a> -->
+          </div>
+          <div class="table"
+  
+          <div class="container">
+              
+              <table class="striped">
+                  <tbody>
+                      <tr>
+                          <th></th>
+                          <th></th>
+                          <th>Saldo Piutang</th>
+                          <th>Rp {{saldo_total1}}</th>
+                      </tr>
+                      <tr>
+                          <th></th>
+                          <th></th>
+                          <th>Uang Diterima</th>
+                          <th>Rp {{saldo_total2}}</th>
+                      </tr>
+                  </tbody>
+              </table>
+                  
+          </div>
+          <div class="table"
+  
+          <div class="container">
+              <table class="highlight">
+                  <thead class="blue lighten-3">
+                  <tr>
+                      <th class="center">Tanggal</th>
+                      <th class="center">ID</th>
+                      <th class="center">Catatan</th>
+                      <th class="center">Piutang</th>
+                      <th class="center">Diterima</th>
+                      <th class="center">Saldo</th>
+                      <th class="center"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      {% for d in data %}
+                          <tr>
+                              <td class="center">{{d.tanggal}}</td>
+                              <td class="center">PjK-{{d.id}}</td>
+                              <td class="center">{{d.catatan}}</td>
+                              <td class="center">Rp {{d.total}}</td>
+                              <td class="center">Rp {{d.terima}}</td>
+                              <td class="center">Rp {{d.saldo}}</td>
+                              <td class="right">
+                                  <a href="/{{d.id}}/edit_p_kredit_terima">
+                                      <button type="button" class="btn btn-outline-success" >Terima</button>
+                                  </a>
+                              </td>
+                          </tr>
+                      {% endfor %}
+                      {% for d in data1 %}
+                          <tr>
+                              <td class="center">{{d.tanggal}}</td>
+                              <td class="center">PjL-{{d.id}}</td>
+                              <td class="center">{{d.catatan}}</td>
+                              <td class="center">Rp {{d.piutang}}</td>
+                              <td class="center">Rp {{d.terima}}</td>
+                              <td class="center">Rp {{d.saldo}}</td>
+                              <td class="right">
+                                  <a href="/{{d.id}}/edit_p_kredit_terima1">
+                                      <button type="button" class="btn btn-outline-success" >Terima</button>
+                                  </a>
+                              </td>
+                          </tr>
+                      {% endfor %}
+                      {% for d in data2 %}
+                      <tr>
+                          <td class="center">{{d.tanggal}}</td>
+                          <td class="center">PdL-{{d.id}}</td>
+                          <td class="center">{{d.catatan}}</td>
+                          <td class="center">Rp {{d.piutang}}</td>
+                          <td class="center">Rp {{d.terima}}</td>
+                          <td class="center">Rp {{d.saldo}}</td>
+                          <td class="right">
+                              <a href="/{{d.id}}/edit_pend_lain_terima">
+                                  <button type="button" class="btn btn-outline-success" >Terima</button>
+                              </a>
+                          </td>
+                      </tr>
+                      {% endfor %}
+  
+                  </tbody>
+              </table>
+         </div>
 
-                </tbody>
-            </table>
-       </div>
 
-   </body>
+
+  	  <!-- End of Isine cuok-->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+  <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+</body>
+
 </html>
