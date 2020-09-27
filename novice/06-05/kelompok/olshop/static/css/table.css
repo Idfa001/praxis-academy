@@ -1,5 +1,5 @@
 table, td {
-  border: 1px solid rgb(223, 223, 223)05);
+  border: 1px solid rgb(223, 223, 223);
   border-collapse: collapse;
 }
 
@@ -23,3 +23,11 @@ th {
   color: white;
 }
 
+.hide {
+  display: none;
+}
+    
+.hapus:hover + .hide {
+  display: block;
+  color: red;
+}
