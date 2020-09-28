@@ -796,7 +796,7 @@ def edit_pem_tunai(req, id):
 
 def edit_pem_kredit(req, id):
     if req.POST:
-        models.pem_kreditm.objects.filter(pk=id).update(keterangan=req.POST['keterangan'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.pem_kreditm.objects.filter(pk=id).update(jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
         return redirect('/pembelian_kredit')
 
     pem = models.pem_kreditm.objects.filter(pk=id).first()
@@ -806,7 +806,7 @@ def edit_pem_kredit(req, id):
 
 def edit_pem_lain(req, id):
     if req.POST:
-        models.pem_lainm.objects.filter(pk=id).update(keterangan=req.POST['keterangan'], dibayar=req.POST['dibayar'], utang=req.POST['utang'], catatan=req.POST['catatan'])
+        models.pem_lainm.objects.filter(pk=id).update(dibayar=req.POST['dibayar'], catatan=req.POST['catatan'])
         return redirect('/pembelian_lain')
 
     pem = models.pem_lainm.objects.filter(pk=id).first()
