@@ -4,6 +4,7 @@ class barangm(models.Model):
     barang = models.CharField(max_length=200)
     harga_beli = models.DecimalField(default=0, max_digits=10, decimal_places=0)
     harga_jual = models.DecimalField(default=0, max_digits=10, decimal_places=0)
+    
     def __str__(self):
         return self.barang
 
