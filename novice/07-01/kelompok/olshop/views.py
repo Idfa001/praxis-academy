@@ -786,7 +786,7 @@ def edit_pend_lain(req, id):
 
 def edit_pem_tunai(req, id):
     if req.POST:
-        models.pem_tunaim.objects.filter(pk=id).update(keterangan=req.POST['keterangan'], jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.pem_tunaim.objects.filter(pk=id).update(jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
         return redirect('/pembelian_tunai')
 
     pem = models.pem_tunaim.objects.filter(pk=id).first()
