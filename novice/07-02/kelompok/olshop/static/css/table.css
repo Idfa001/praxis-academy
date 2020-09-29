@@ -31,3 +31,7 @@ th {
   display: block;
   color: red;
 }
+
+table{
+  overflow-x: auto;
+}
