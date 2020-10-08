@@ -310,7 +310,7 @@
                               <td class="center">{{d.tanggal1}}</td>
                               <td class="center">Utg-{{d.id}}</td>
                               <td class="center">{{d.catatan}}</td>
-                              <td class="center">{{d.jatempo}}</td>
+                              <td class="center">{{d.jatuh_tempo}}</td>
                               <td class="center">Rp {{d.jum_utang}}</td>
                               <td>
                                   <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus4"><i class="material-icons">delete_forever</i></a>
@@ -351,7 +351,7 @@
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-
+  {{ form.media }}
 </body>
 
 </html>

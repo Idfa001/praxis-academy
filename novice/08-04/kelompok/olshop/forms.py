@@ -19,9 +19,9 @@ class utangf(ModelForm):
         model = models.utangm
         exclude = ['dibayar']
         widgets = {
-            'jatuh_tempo': DatePickerInput(format='%d/%m/%Y'),
+            'jatuh_tempo': DatePickerInput(format='%d-%m-%Y'),
         }
-        
+
 class pend_lainf(ModelForm):
     class Meta:
         model = models.pend_lainm

@@ -39,8 +39,3 @@ table, td {
   .table{
     overflow-x: auto;
   }
-
-  #topbar {
-    background-color: #666666;
-    overflow: hidden;text-align:center
-    }

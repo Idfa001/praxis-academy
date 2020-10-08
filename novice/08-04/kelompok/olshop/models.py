@@ -46,10 +46,10 @@ class utangm(models.Model):
     dibayar = models.DecimalField(default=0, max_digits=10, decimal_places=0)
 
     def tanggal1(self):
-        return self.tanggal.strftime("%d/%m/%Y")
-        
+        return self.tanggal.strftime("%d-%m-%Y")
+
     def tanggal2(self):
-        return self.jatuh_tempo.strftime("%d/%m/%Y")
+        return self.jatuh_tempo.strftime("%d-%m-%Y")
 
     def jum_utang(self):
         return self.jumlah
