@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'kelompok.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'kelompok',
-        'USER':'idfa',
-        'PASSWORD': 'Fadante1',
+        'NAME':'polska',
+        'USER':'steiner',
+        'PASSWORD': 'madscientist',
         'HOST': 'localhost',
     }
 }
