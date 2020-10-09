@@ -19,6 +19,7 @@ class penjualan1m(models.Model):
     saldo_awal = models.DecimalField(default=0, max_digits=10, decimal_places=0)
     kas_masuk = models.DecimalField(default=0, max_digits=10, decimal_places=0)
     terima = models.IntegerField(default=0)
+
     
     def tanggal1(self):
         return self.tanggal.strftime("%d-%m-%Y")
@@ -58,7 +59,7 @@ class utangm(models.Model):
         return self.jumlah - self.dibayar
 
     def jumlah3(self):
-        return self.saldo
+        return self.saldo()
 
     def duda(self):
         return self.jatuh_tempo - datetime.now().date()
@@ -75,7 +76,7 @@ class pend_lainm(models.Model):
     def tanggal1(self):
         return self.tanggal.strftime("%d/%m/%Y")
 
-    def jum_pend(self):
+    def jum_pend(self): 
         return self.kas_masuk
 
     def jum_pend1(self):
@@ -95,20 +96,40 @@ class pend_lainm(models.Model):
 class pem_tunaim(models.Model):
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
-    jumlah = models.DecimalField(max_digits=10, decimal_places=0)
-    catatan = models.CharField(max_length=200)
+    pembelian = models.DecimalField(default=0, max_digits=10, decimal_places=0)
+    kas_keluar = models.DecimalField(max_digits=10, decimal_places=0)
+    dibayar = models.DecimalField(default=0, max_digits=10, decimal_places=0)
+
 
     def tanggal1(self):
         return self.tanggal.strftime("%d/%m/%Y")
 
     def jum_pem(self):
         return self.jumlah
+    
+    def kas_keluar1(self):
+        return self.kas_keluar
+    
+    def pembelian1(self):
+        return self.pembelian
+    
+    def utang(self):
+        return self.pembelian - self.kas_keluar
+
+    def utang1(self):
+        return self.utang()
+    
+    def saldo(self):
+        return self.utang() - self.dibayar
+    
+    def saldo1(self):
+        return self.saldo()
 
 class pem_kreditm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
-    keterangan = models.CharField(max_length=200)
-    jumlah = models.DecimalField(max_digits=10, decimal_places=0)
-    catatan = models.CharField(max_length=200)
+    barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING, default=0)
+    kuantitas = models.IntegerField(default=0)
+    kas_keluar = models.DecimalField(default=0, max_digits=10, decimal_places=0)
     dibayar1 = models.DecimalField(default=0, max_digits=10, decimal_places=0)
 
     def tanggal1(self):
@@ -120,7 +141,26 @@ class pem_kreditm(models.Model):
     def saldo(self):
         return self.jumlah - self.dibayar1
 
+    def total(self):
+        return self.barang.harga_beli * self.kuantitas
+    
+    def utang(self):
+        return self.total() - self.kas_keluar
 
+    def kas_keluar2(self):
+        return self.kas_keluar
+
+    def pembelian2(self):
+        return self.total()
+
+    def utang2 (self):
+        return self.utang()
+
+    def saldo1 (self):
+        return self.utang() - self.dibayar1
+
+    def saldo2 (self):
+        return self.saldo1()
 class pem_lainm(models.Model):
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)

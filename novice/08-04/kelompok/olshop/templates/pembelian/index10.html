@@ -20,7 +20,6 @@
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
   <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="  https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-  
 </head>
 
 <body id="page-top">
@@ -60,10 +59,9 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/penjualan">Penjualan</a>
+            <a class="collapse-item" href="/penjualan_tunai">Penjualan</a>
             <a class="collapse-item" href="/piutang">Piutang</a>
             <a class="collapse-item" href="/utang">Utang</a>
-            <a class="collapse-item" href="/pend_lain">Pendapata Lain-Lain</a>
           </div>
         </div>
       </li>
@@ -76,10 +74,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/pembelian">Pembelian</a>
+            <a class="collapse-item" href="/pembelian_tunai">Pembelian</a>
             <a class="collapse-item" href="/pembayaran_utang">Pembayaran Utang</a>
-            <a class="collapse-item" href="/pembayaran_biaya">Pembayaran Biaya</a>
-            <a class="collapse-item" href="/pembayaran_lain">Pembayaran Lain-lain</a>
           </div>
         </div>
       </li>
@@ -119,229 +115,371 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          
 
           <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pengguna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Pengaturan
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Aktivitas
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Keluar
-                </a>
-              </div>
-            </li>
+          <ul class="nav navbar-nav navbar-center" >
+            <div>
+              <h4>PEMBELIAN</h4>      
+            </div>
 
           </ul>
 
         </nav>
-  <!-- End of Top Bar-->
 
+        <!-- Begin Page Content -->
         <div class="container">
-            <div class="page-header" align="center">
-              <h2>PEMBELIAN TUNAI</h2>      
-            </div>
+            
+            <center>
+              <form action="">
+                <input type="date" name="dari" value="{{request.GET.dari}}" >  
+                - <input type="date" name="sampai" value="{{request.GET.sampai}}">
+                <button class="btn btn-primary btn-sm"><i class="fas fa-search"></i></button>
+              </form>
+            </center>
+            <br>
+
+            <!-- <a class="btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">delete_forever</i></a> -->
         </div>
-
-
-        <div class="table"
-
-        <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Umum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Barang</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <br>
             <table class="highlight">
-                <thead>
-                  <div class="container" style="align-items: right;">
-                    <a href="#" class="fa fa-plus-circle fa-2x" data-toggle="modal" data-target="#myModal"></a>
-                  </div>
-            <div class="container">
-                      <!-- Modal -->
-                      <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-                        
-                          <!-- Modal content-->
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title">Tambah Pembelian tunai</h4>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                            </div>
-                            <div class="modal-body">
-                              <form action="" method="POST" class="mt-3">
-                                {% load crispy_forms_tags %}
-                                {% csrf_token %}
-                                
-                                {{ form|crispy }}
-                                <br>
-                                <button class="btn btn-primary btn-xs">Tambah</button>
-                        
-                              </form>
-                      
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                      
-                    </div>
-                </thead>
-                <thead>
-                <tr>
-                    <th> Ubah</th>
-                    <th class="center">Tanggal</th>
-                    <th class="center">ID</th>
-                    <th class="center">Keterangan</th>
-                    <th class="center">Dibayar</th>
-                    <th class="center">Catatan</th>
-                    <th>Hapus</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                    {% for d in data %}
-                        <tr>
-                            <td>
-                      <a class="btn-floating btn-small waves-effect waves-light green right" href="" data-toggle="modal" data-target="#editModal{{d.id}}">
-                          <i class="material-icons">edit</i>
-                      </a>
-
-                      <div class="container">
-                        <!-- Modal -->
-                        <div class="modal fade" id="editModal{{d.id}}" role="dialog">
-                          <div class="modal-dialog">
-                          
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title">Edit Penjualan</h4>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-
-                              </div>
-                              <div class="modal-body">
-                                <form action="/{{d.id}}/edit_pem_tunai/" method="POST" class="mt-3">
-                                 
-                                  {% csrf_token %}
-                                  
-                                  <table class="table mt-3">
-                                      <tr>
-                                        <td>ID</td>
-                                        <td>{{d.id}}</td>
-                                      </tr>
-                                      <tr> 
-                                        <td>Tanggal Transaksi</td>
-                                        <td>{{d.tanggal}}</td>
-                                      </tr>
-                                      <tr> 
-                                        <td>Keterangan</td>
-                                        <td>{{d.keterangan}}</td>
-                                      </tr>
-                                        <tr>
-                                            <td>Jumlah</td>
-                                            <td>
-                                            <input type="number" name="jumlah" value="{{d.jumlah}}" class="form-control">
-                                            </td>
-                                        </tr>
-
-                                      <tr>
-                                          <td>Catatan</td>
-                                          <td>
-                                           <input type="text" name="catatan" value="{{d.catatan}}" class="form-control"> 
-                                          </td>
-                                      </tr>
-                                      </table>
-                                  <br>
-                                  <button class="btn btn-primary btn-xs">Update</button>
-                                </form>
-                        
-                              </div>
-                              <div class="modal-footer">
-                              </div>
-                            </div>                          
-                          </div>
-                        </div>                      
-                      </div>
-
-                            </td>
-                            <td class="center">{{d.tanggal1}}</td>
-                            <td class="center">PbT-{{d.id}}</td>
-                            <td class="center">{{d.keterangan}}</td>
-                            <td class="center">Rp {{d.jumlah}}</td>
-                            <td class="center">{{d.catatan}}</td>
-                            <td>
-                                <a class="btn-floating btn-small waves-effect waves-light red right" href="/{{d.id}}/hapus5"><i class="material-icons">delete_forever</i></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                <thead class="orange accent-2">
-                    <tr>
-                        <th></th>
-                        <th>Jumlah</th>
-                        <th></th>
-                        <th class="center"></th>
-                        <th class="center">Rp {{jum_pem}}</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
+              <thead>
+                <div class="container">
+                  <a href="/pem_tunaiv" class="fa fa-plus-circle fa-2x"></a>
+                </div>
+              </thead>
             </table>
-       </div>
+            <br>
+            <div class="accordion md-accordion">
+                
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div  class="card-header" style="background:mediumseagreen; " >
+                    <h5 class="mb-2">
+                      <div class="row" style="color: white; font-size: medium; " align="center">
+
+                        <div class="col-sm">Kas keluar : Rp {{kas_keluar1}}</div>
+
+                        <div class="col-sm">Pembelian : Rp {{pembelian1}}</div>
+
+                        <div class="col-sm">Utang : Rp {{utang1}}</div>
+ 
+                      </div>
+                    </h5>
+                </div>
+              </div>
+            </div>
+            {% for d in data %}            <!--Accordion wrapper-->
+              <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="false">
+                
+                <!-- Accordion card -->
+                <div class="card">
+
+                  <!-- Card header -->
+                  <div class="card-header" role="tab" id="heading{{d.id}}" style="background:mediumseagreen;">
+                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse{{d.id}}" aria-expanded="false"
+                      aria-controls="collapse{{d.id}}">
+                      <h5 class="mb-0">
+                        <div class="row" style="color: white; font-size: medium;" >
+                          <div class="col-sm-6">{{d.tanggal}}</div>
+                          <div class="col-sm-6">Kas keluar : Rp {{d.kas_keluar}}</div>
+                        </div>
+                      </h5>
+                    </a>
+                  </div>
 
 
+                  <!-- Card body -->
+                  <div id="collapse{{d.id}}" class="collapse " role="tabpanel" aria-labelledby="heading{{d.id}}" data-parent="#accordionEx">
+                    <div class="card-body">
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">ID</div>
+                          <div class="col-lg-9 col-md-9 col">: Umm-{{d.id}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Pembelian</div>
+                          <div class="col-lg-9 col-md-9 col">: {{d.pembelian}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Utang</div>
+                          <div class="col-lg-9 col-md-9 col">: {{d.utang}}</div>
+                        </div>
+                      </li>
+                    
+                      <li class="center list-group-item">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-2 col">
+                            <a class="far fa-edit" href="" data-toggle="modal" data-target="#editModal{{d.id}}"></a>
+                            <div class="container">
+                              <!-- Modal -->
+                              <div class="modal fade" id="editModal{{d.id}}" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Edit Pendapatan</h4>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+      
+                                    </div>
+                                    <div class="modal-body">
+                                      <form action="/{{d.id}}/edit_pem_tunai/" method="POST" class="mt-3">
+                                       
+                                        {% csrf_token %}
+                                        
+                                        <table class="table mt-3">
+                                            <tr>
+                                              <td>ID</td>
+                                              <td>{{d.id}}</td>
+                                            </tr>
+                                            <tr> 
+                                              <td>Tanggal Transaksi</td>
+                                              <td>{{d.tanggal}}</td>
+                                            </tr>
+                                              <tr>
+                                                  <td>Keterangan</td>
+                                                  <td>
+                                                  <input type="text" name="keterangan" value="{{d.keterangan}}" class="form-control">
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                <td>Kas Keluar</td>
+                                                <td>
+                                                <input type="number" name="kas_keluar" value="{{d.kas_keluar}}" class="form-control">
+                                                </td>
+                                            </tr>
+                                            </table>
+                                        <br>
+                                        <button class="btn btn-primary btn-xs">Update</button>
+                                      </form>
+                              
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                  </div>                          
+                                </div>
+                              </div>                      
+                            </div>
+                          </div>
+                          <div class="col-lg-11 col-md-10 col">
+                            <a href="/{{d.id}}/hapus5" class="far fa-trash-alt fa-1,5x"></a>
+                          </div>
+                        </div>
+                        <!-- Primary raised circle button with ripple effect -->
+                        
+                        
 
-  	  <!-- End of Isine cuok-->
+                      </li>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <br>
+            <table class="highlight">
+              <thead>
+                <div class="container" style="align-items: right;">
+                  <a href="/pem_kreditv" class="fa fa-plus-circle fa-2x"></a>
+                </div>
+              </thead>
+            </table>
+            <br>
+            <div class="accordion md-accordion">
+                
+              <!-- Accordion card -->
+              <div class="card">
+
+                <!-- Card header -->
+                <div  class="card-header" style="background:rgb(255, 179, 37); " >
+                    <h5 class="mb-2">
+                      <div class="row" style="color: white; font-size: medium; " align="center">
+
+                        <div class="col-sm">Kas keluar : Rp {{kas_keluar2}}</div>
+
+                        <div class="col-sm">Pembelian : Rp {{pembelian2}}</div>
+
+                        <div class="col-sm">Utang : Rp {{utang2}}</div>
+ 
+ 
+                      </div>
+                    </h5>
+                </div>
+              </div>
+            </div>
+            {% for d in data1 %}            <!--Accordion wrapper-->
+              <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                
+                <!-- Accordion card -->
+                <div class="card">
+
+                  <!-- Card header -->
+                  <div class="card-header" role="tab" id="headingOne1" style="background:rgb(255, 179, 37);">
+                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne{{d.id}}" aria-expanded="true"
+                      aria-controls="collapseOne{{d.id}}">
+                      <h5 class="mb-0">
+                        <div class="row" style="color: white; font-size: medium;" >
+                          <div class="col-sm-6">{{d.tanggal}}</div>
+                          <div class="col-sm-6">Kas keluar : Rp {{d.kas_keluar}}</div>
+                        </div>
+                      </h5>
+                    </a>
+                  </div>
 
 
+                  <!-- Card body -->
+                  <div id="collapseOne{{d.id}}" class="collapse " role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                    <div class="card-body">
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">ID</div>
+                          <div class="col-lg-9 col-md-9 col">: PB-{{d.id}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Barang</div>
+                          <div class="col-lg-9 col-md-9 col">: {{d.barang}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Kuantitas</div>
+                          <div class="col-lg-9 col-md-9 col">: {{d.kuantitas}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Harga</div>
+                          <div class="col-lg-9 col-md-9 col">: Rp {{d.barang.harga_beli}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Pembelian</div>
+                          <div class="col-lg-9 col-md-9 col">: Rp {{d.total}}</div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col">Utang</div>
+                          <div class="col-lg-9 col-md-9 col">: Rp {{d.utang}}</div>
+                        </div>
+                      </li>
+                      <li class="center list-group-item">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-2 col">
+                            <a class="far fa-edit" href="" data-toggle="modal" data-target="#editModal1{{d.id}}"></a>
+                            <div class="container">
+                              <!-- Modal -->
+                              <div class="modal fade" id="editModal1{{d.id}}" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Edit Penjualan</h4>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+      
+                                    </div>
+                                    <div class="modal-body">
+                                      <form action="/{{d.id}}/edit_pend_lain/" method="POST" class="mt-3">
+                                       
+                                        {% csrf_token %}
+                                        
+                                        <table class="table mt-3">
+                                            <tr>
+                                              <td>ID</td>
+                                              <td>{{d.id}}</td>
+                                            </tr>
+                                            <tr> 
+                                              <td>Tanggal Transaksi</td>
+                                              <td>{{d.tanggal}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Keterangan</td>
+                                              <td>
+                                              <input type="text" name="keterangan" value="{{d.keterangan}}" class="form-control">
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                                  <td>Kuantitas</td>
+                                                  <td>
+                                                  <input type="number" name="pendapatan" value="{{d.pendapatan}}" class="form-control">
+                                                  </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kas Masuk</td>
+                                                <td>
+                                                <input type="number" name="kas_masuk" value="{{d.kas_masuk}}" class="form-control">
+                                                </td>
+                                            </tr>
+                                            </table>
+                                        <br>
+                                        <button class="btn btn-primary btn-xs">Update</button>
+                                      </form>
+                              
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                  </div>                          
+                                </div>
+                              </div>                      
+                            </div>
+                          </div>
+                          <div class="col-lg-11 col-md-10 col">
+                            <a href="/{{d.id}}/hapus1" class="far fa-trash-alt fa-1,5x"></a>
+                          </div>
+                        </div>
+                        <!-- Primary raised circle button with ripple effect -->
+                        
+                        
+
+                      </li>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js">
+    </script>
+    <script>
+    
+      $(".tm").on("change", function() {
+      this.setAttribute(
+          "data-date",
+          moment(this.value, "YYYY-MM-DD")
+          .format( this.getAttribute("data-date-format") )
+      )
+      }).trigger("change")
+  
+  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -358,7 +496,7 @@
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-
+  {{ form.media }}
 </body>
 
 </html>

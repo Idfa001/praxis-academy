@@ -21,6 +21,9 @@
   <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="  https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   
+
+
+  
 </head>
 
 <body id="page-top">
@@ -60,10 +63,9 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/penjualan">Penjualan</a>
+            <a class="collapse-item" href="/penjualan_tunai">Penjualan</a>
             <a class="collapse-item" href="/piutang">Piutang</a>
             <a class="collapse-item" href="/utang">Utang</a>
-            <a class="collapse-item" href="/pend_lain">Pendapata Lain-Lain</a>
           </div>
         </div>
       </li>
@@ -76,10 +78,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/pembelian">Pembelian</a>
+            <a class="collapse-item" href="/pembelian_tunai">Pembelian</a>
             <a class="collapse-item" href="/pembayaran_utang">Pembayaran Utang</a>
-            <a class="collapse-item" href="/pembayaran_biaya">Pembayaran Biaya</a>
-            <a class="collapse-item" href="/pembayaran_lain">Pembayaran Lain-lain</a>
           </div>
         </div>
       </li>
@@ -118,383 +118,352 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
+          <ul class="nav navbar-nav navbar-center" >
+            <div>
+              <h4>PEMBAYARAN UTANG</h4>      
             </div>
-          </form>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pengguna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Pengaturan
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Aktivitas
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Keluar
-                </a>
-              </div>
-            </li>
 
           </ul>
-
         </nav>
    
    <body>
-    <div class="container">
-        <div class="page-header" align="center">
-          <h2>UTANG</h2>      
-        </div><br>
-    </div>
-        <div class="table"
 
-        <div class="container">
+        <br>
+        <div class="accordion md-accordion">
             
-            <table class="striped">
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Saldo Utang</th>
-                        <th>Rp {{jumlah1}}</th>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Uang Dibayar</th>
-                        <th>Rp {{jumlah2}}</th>
-                    </tr>
-                </tbody>
-            </table>
-                
+          <!-- Accordion card -->
+          <div class="card">
+
+            <!-- Card header -->
+            <div  class="card-header" style="background:rgb(39, 118, 74); " >
+                <h5 class="mb-2">
+                  <div class="row" style="color: white; font-size: medium; " align="center">
+
+                    <div class="col-sm">Saldo Utang : Rp {{jumlah1}}</div>
+
+                    <div class="col-sm">Uang Dibayar : Rp {{jumlah2}}</div>
+
+                  </div>
+                </h5>
+            </div>
+          </div>
         </div>
-        <div class="table"
+        {% for d in data %}            <!--Accordion wrapper-->
+          <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="false">
+            
+            <!-- Accordion card -->
+            <div class="card">
 
-        <div class="container">
-            <table class="highlight">
-                <thead class="blue lighten-3">
-                    <tr>
-                        <th class="center">Tanggal</th>
-                        <th>Catatan</th>
-                        <th>ID</th>
-                        <th>Utang</th>
-                        <th>Dibayar</th>
-                        <th>Saldo</th>
-                        <th></th>
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="heading{{d.id}}" style="background:mediumseagreen;">
+                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse{{d.id}}" aria-expanded="false"
+                  aria-controls="collapse{{d.id}}">
+                  <h5 class="mb-0">
+                    <div class="row" style="color: white; font-size: medium;" >
+                      <div class="col-sm-6">{{d.tanggal}}</div>
+                      <div class="col-sm-6">Saldo : Rp {{d.saldo}}</div>
+                    </div>
+                  </h5>
+                </a>
+              </div>
 
-                    </tr>
-                    </thead>
-    
-                    <tbody>
-                        {% for d in data %}
-                    <tr>
-                        <td class="center">{{d.tanggal1}}</td>
-                        <td>{{d.catatan}}</td>
-                        <td>Utg-{{d.id}}</td>
-                        <td>Rp {{d.jum_utang}}</td>
-                        <td>Rp {{d.dibayar}}</td>
-                        <td>Rp {{d.saldo}}</td>
-                        <td class="right">
-                            <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal{{d.id}}">Bayar</a>
-                          <div class="container">
-                            <!-- Modal -->
-                            <div class="modal fade" id="editModal{{d.id}}" role="dialog">
-                              <div class="modal-dialog">
-                              
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h4 class="modal-title">Bayar Utang</h4>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-    
-                                  </div>
-                                  <div class="modal-body">
-                                    <form action="/{{d.id}}/edit_butang/" method="POST" class="mt-3">
-                                     
-                                      {% csrf_token %}
-                                      
-                                      <table class="table mt-3">
+
+              <!-- Card body -->
+              <div id="collapse{{d.id}}" class="collapse " role="tabpanel" aria-labelledby="heading{{d.id}}" data-parent="#accordionEx">
+                <div class="card-body">
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col">ID</div>
+                      <div class="col-lg-9 col-md-9 col">: Utg-{{d.id}}</div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col">Bayar</div>
+                      <div class="col-lg-9 col-md-9 col">: Rp {{d.dibayar}}</div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col">Utang</div>
+                      <div class="col-lg-9 col-md-9 col">: Rp {{d.jumlah}}</div>
+                    </div>
+                  </li>
+                  <li class="center list-group-item">
+                    <div class="row">
+                      <div class="col-lg-1 col-md-2 col">
+                        <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal1{{d.id}}">Bayar</a>
+                        <div class="container">
+                          <!-- Modal -->
+                          <div class="modal fade" id="editModal1{{d.id}}" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Edit Pendapatan</h4>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+  
+                                </div>
+                                <div class="modal-body">
+                                  <form action="/{{d.id}}/edit_butang/" method="POST" class="mt-3">
+                                   
+                                    {% csrf_token %}
+                                    
+                                    <table class="table mt-3">
+                                        <tr>
+                                          <td>ID</td>
+                                          <td>{{d.id}}</td>
+                                        </tr>
+                                        <tr> 
+                                          <td>Tanggal Transaksi</td>
+                                          <td>{{d.tanggal}}</td>
+                                        </tr>
                                           <tr>
-                                            <td>ID</td>
-                                            <td>{{d.id}}</td>
-                                          </tr>
-                                          <tr> 
-                                            <td>Tanggal Transaksi</td>
-                                            <td>{{d.tanggal}}</td>
-                                          </tr>
-                                            <tr>
-                                                <td>Bayar</td>
-                                                <td>
-                                                <input type="number" name="dibayar" value="{{d.dibayar}}" class="form-control">
-                                                </td>
-                                            </tr>
-    
-                                          <tr>
-                                              <td>Catatan</td>
+                                              <td>Bayar</td>
                                               <td>
-                                               <input type="text" name="catatan" value="{{d.catatan}}" class="form-control"> 
+                                              <input type="number" name="dibayar" value="{{d.dibayar}}" class="form-control">
                                               </td>
                                           </tr>
-                                          </table>
-                                      <br>
-                                      <button class="btn btn-primary btn-xs">Bayar</button>
-                                    </form>
-                            
-                                  </div>
-                                  <div class="modal-footer">
-                                  </div>
-                                </div>                          
+
+                                        </table>
+                                    <br>
+                                    <button class="btn btn-primary btn-xs">Update</button>
+                                  </form>
+                          
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                              </div>                          
+                            </div>
+                          </div>                      
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Primary raised circle button with ripple effect -->
+                    
+                    
+
+                  </li>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+        {% for d in data2 %}            <!--Accordion wrapper-->
+        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="false">
+          
+          <!-- Accordion card -->
+          <div class="card">
+
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="heading1{{d.id}}" style="background:mediumseagreen;">
+              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse1{{d.id}}" aria-expanded="false"
+                aria-controls="collapse1{{d.id}}">
+                <h5 class="mb-0">
+                  <div class="row" style="color: white; font-size: medium;" >
+                    <div class="col-sm-6">{{d.tanggal}}</div>
+                    <div class="col-sm-6">Saldo : Rp {{d.saldo}}</div>
+                  </div>
+                </h5>
+              </a>
+            </div>
+
+
+            <!-- Card body -->
+            <div id="collapse1{{d.id}}" class="collapse " role="tabpanel" aria-labelledby="heading1{{d.id}}" data-parent="#accordionEx">
+              <div class="card-body">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col">ID</div>
+                    <div class="col-lg-9 col-md-9 col">: Umm-{{d.id}}</div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col">Bayar</div>
+                    <div class="col-lg-9 col-md-9 col">: Rp {{d.dibayar}}</div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col">Piutang</div>
+                    <div class="col-lg-9 col-md-9 col">: Rp {{d.utang}}</div>
+                  </div>
+                </li>
+                <li class="center list-group-item">
+                  <div class="row">
+                    <div class="col-lg-1 col-md-2 col">
+                      <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal1{{d.id}}">Bayar</a>
+                      <div class="container">
+                        <!-- Modal -->
+                        <div class="modal fade" id="editModal1{{d.id}}" role="dialog">
+                          <div class="modal-dialog">
+                          
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Edit Pendapatan</h4>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+
                               </div>
-                            </div>                      
-                          </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-    
-                    {% for d in data1 %}
-                    <tr>
-                        <td class="center">{{d.tanggal1}}</td>
-                        <td>{{d.catatan}}</td>
-                        <td>PbK-{{d.id}}</td>
-                        <td>Rp {{d.jumlah}}</td>
-                        <td>Rp {{d.dibayar1}}</td>
-                        <td>Rp {{d.saldo}}</td>
-                        <td class="right">
-                          <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal1{{d.id}}">Bayar</a>
-                          <div class="container">
-                            <!-- Modal -->
-                            <div class="modal fade" id="editModal1{{d.id}}" role="dialog">
-                              <div class="modal-dialog">
-                              
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h4 class="modal-title">Bayar Utang</h4>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-    
-                                  </div>
-                                  <div class="modal-body">
-                                    <form action="/{{d.id}}/edit_butang1/" method="POST" class="mt-3">
-                                     
-                                      {% csrf_token %}
-                                      
-                                      <table class="table mt-3">
-                                          <tr>
-                                            <td>ID</td>
-                                            <td>{{d.id}}</td>
-                                          </tr>
-                                          <tr> 
-                                            <td>Tanggal Transaksi</td>
-                                            <td>{{d.tanggal}}</td>
-                                          </tr>
-                                            <tr>
-                                                <td>Bayar</td>
-                                                <td>
-                                                <input type="number" name="dibayar1" value="{{d.dibayar1}}" class="form-control">
-                                                </td>
-                                            </tr>
-    
-                                          <tr>
-                                              <td>Catatan</td>
-                                              <td>
-                                               <input type="text" name="catatan" value="{{d.catatan}}" class="form-control"> 
-                                              </td>
-                                          </tr>
-                                          </table>
-                                      <br>
-                                      <button class="btn btn-primary btn-xs">Bayar</button>
-                                    </form>
-                            
-                                  </div>
-                                  <div class="modal-footer">
-                                  </div>
-                                </div>                          
+                              <div class="modal-body">
+                                <form action="/{{d.id}}/edit_butang3/" method="POST" class="mt-3">
+                                 
+                                  {% csrf_token %}
+                                  
+                                  <table class="table mt-3">
+                                      <tr>
+                                        <td>ID</td>
+                                        <td>{{d.id}}</td>
+                                      </tr>
+                                      <tr> 
+                                        <td>Tanggal Transaksi</td>
+                                        <td>{{d.tanggal}}</td>
+                                      </tr>
+                                        <tr>
+                                            <td>Bayar</td>
+                                            <td>
+                                            <input type="number" name="dibayar" value="{{d.dibayar}}" class="form-control">
+                                            </td>
+                                        </tr>
+
+                                      </table>
+                                  <br>
+                                  <button class="btn btn-primary btn-xs">Update</button>
+                                </form>
+                        
                               </div>
-                            </div>                      
-                          </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    {% for d in data2 %}
-                    <tr>
-                        <td class="center">{{d.tanggal1}}</td>
-                        <td>{{d.catatan}}</td>
-                        <td>PbL-{{d.id}}</td>
-                        <td>Rp {{d.utang}}</td>
-                        <td>Rp {{d.dibayar2}}</td>
-                        <td>Rp {{d.saldo}}</td>
-                        <td class="right">
-                          <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal2{{d.id}}">Bayar</a>
-                          <div class="container">
-                            <!-- Modal -->
-                            <div class="modal fade" id="editModal2{{d.id}}" role="dialog">
-                              <div class="modal-dialog">
-                              
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h4 class="modal-title">Bayar Utang</h4>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-    
-                                  </div>
-                                  <div class="modal-body">
-                                    <form action="/{{d.id}}/edit_butang2/" method="POST" class="mt-3">
-                                     
-                                      {% csrf_token %}
-                                      
-                                      <table class="table mt-3">
-                                          <tr>
-                                            <td>ID</td>
-                                            <td>{{d.id}}</td>
-                                          </tr>
-                                          <tr> 
-                                            <td>Tanggal Transaksi</td>
-                                            <td>{{d.tanggal}}</td>
-                                          </tr>
-                                            <tr>
-                                                <td>Bayar</td>
-                                                <td>
-                                                <input type="number" name="dibayar2" value="{{d.dibayar2}}" class="form-control">
-                                                </td>
-                                            </tr>
-    
-                                          <tr>
-                                              <td>Catatan</td>
-                                              <td>
-                                               <input type="text" name="catatan" value="{{d.catatan}}" class="form-control"> 
-                                              </td>
-                                          </tr>
-                                          </table>
-                                      <br>
-                                      <button class="btn btn-primary btn-xs">Bayar</button>
-                                    </form>
-                            
-                                  </div>
-                                  <div class="modal-footer">
-                                  </div>
-                                </div>                          
+                              <div class="modal-footer">
                               </div>
-                            </div>                      
+                            </div>                          
                           </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    {% for d in data3 %}
-                    <tr>
-                        <td class="center">{{d.tanggal1}}</td>
-                        <td>{{d.catatan}}</td>
-                        <td>PbL-{{d.id}}</td>
-                        <td>Rp {{d.utang}}</td>
-                        <td>Rp {{d.dibayar3}}</td>
-                        <td>Rp {{d.saldo}}</td>
-                        <td class="right">
-                          <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal3{{d.id}}">Bayar</a>
-                          <div class="container">
-                            <!-- Modal -->
-                            <div class="modal fade" id="editModal3{{d.id}}" role="dialog">
-                              <div class="modal-dialog">
-                              
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h4 class="modal-title">Bayar Utang</h4>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-    
-                                  </div>
-                                  <div class="modal-body">
-                                    <form action="/{{d.id}}/edit_butang3/" method="POST" class="mt-3">
-                                     
-                                      {% csrf_token %}
-                                      
-                                      <table class="table mt-3">
-                                          <tr>
-                                            <td>ID</td>
-                                            <td>{{d.id}}</td>
-                                          </tr>
-                                          <tr> 
-                                            <td>Tanggal Transaksi</td>
-                                            <td>{{d.tanggal}}</td>
-                                          </tr>
-                                            <tr>
-                                                <td>Bayar</td>
-                                                <td>
-                                                <input type="number" name="dibayar2" value="{{d.dibayar2}}" class="form-control">
-                                                </td>
-                                            </tr>
-    
-                                          <tr>
-                                              <td>Catatan</td>
-                                              <td>
-                                               <input type="text" name="catatan" value="{{d.catatan}}" class="form-control"> 
-                                              </td>
-                                          </tr>
-                                          </table>
-                                      <br>
-                                      <button class="btn btn-primary btn-xs">Bayar</button>
-                                    </form>
-                            
-                                  </div>
-                                  <div class="modal-footer">
-                                  </div>
-                                </div>                          
-                              </div>
-                            </div>                      
-                          </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-            </table>
-       </div>
-       <!-- Bootstrap core JavaScript-->
+                        </div>                      
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Primary raised circle button with ripple effect -->
+                  
+                  
+
+                </li>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      {% endfor %}
+      {% for d in data1 %}            <!--Accordion wrapper-->
+      <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="false">
+        
+        <!-- Accordion card -->
+        <div class="card">
+
+          <!-- Card header -->
+          <div class="card-header" role="tab" id="heading1{{d.id}}" style="background:mediumseagreen;">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse2{{d.id}}" aria-expanded="false"
+              aria-controls="collapse2{{d.id}}">
+              <h5 class="mb-0">
+                <div class="row" style="color: white; font-size: medium;" >
+                  <div class="col-sm-6">{{d.tanggal}}</div>
+                  <div class="col-sm-6">Saldo : Rp {{d.saldo1}}</div>
+                </div>
+              </h5>
+            </a>
+          </div>
+
+
+          <!-- Card body -->
+          <div id="collapse2{{d.id}}" class="collapse " role="tabpanel" aria-labelledby="heading2{{d.id}}" data-parent="#accordionEx">
+            <div class="card-body">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col">ID</div>
+                  <div class="col-lg-9 col-md-9 col">: PB-{{d.id}}</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col">Bayar</div>
+                  <div class="col-lg-9 col-md-9 col">: Rp {{d.dibayar1}}</div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col">Piutang</div>
+                  <div class="col-lg-9 col-md-9 col">: Rp {{d.utang}}</div>
+                </div>
+              </li>
+              <li class="center list-group-item">
+                <div class="row">
+                  <div class="col-lg-1 col-md-2 col">
+                    <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#editModal2{{d.id}}">Bayar</a>
+                    <div class="container">
+                      <!-- Modal -->
+                      <div class="modal fade" id="editModal2{{d.id}}" role="dialog">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Edit Pendapatan</h4>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+
+                            </div>
+                            <div class="modal-body">
+                              <form action="/{{d.id}}/edit_butang1/" method="POST" class="mt-3">
+                               
+                                {% csrf_token %}
+                                
+                                <table class="table mt-3">
+                                    <tr>
+                                      <td>ID</td>
+                                      <td>{{d.id}}</td>
+                                    </tr>
+                                    <tr> 
+                                      <td>Tanggal Transaksi</td>
+                                      <td>{{d.tanggal}}</td>
+                                    </tr>
+                                      <tr>
+                                          <td>Bayar</td>
+                                          <td>
+                                          <input type="number" name="dibayar1" value="{{d.dibayar1}}" class="form-control">
+                                          </td>
+                                      </tr>
+
+                                    </table>
+                                <br>
+                                <button class="btn btn-primary btn-xs">Update</button>
+                              </form>
+                      
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                          </div>                          
+                        </div>
+                      </div>                      
+                    </div>
+                  </div>
+                </div>
+                <!-- Primary raised circle button with ripple effect -->
+                
+                
+
+              </li>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
@@ -510,7 +479,7 @@
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-
+{{ form.media }} 
 </body>
 
 </html>

@@ -6,7 +6,125 @@ from . import models
 
 
 def halamandepan(req):
+    pen = models.penjualan1m.objects.all()
+    pen2 = models.pend_lainm.objects.all()
+
+    kas_masuk1 = 0
+    for q in pen:
+      kas_masuk1 += q.kas_masuk1()
+
+    kas_masuk2 = 0
+    for q in pen2:
+      kas_masuk2 += q.jum_pend()
+
+    penjualan1 = models.penjualan1m.objects.all()
+    penjualan2 = models.pend_lainm.objects.all()
+
+    total_terima1 = 0   
+
+    for p in penjualan1:
+      total_terima1 += p.terima
+
+    total_terima2 = 0   
+
+    for p in penjualan2:
+      total_terima2 += p.terima
+
+    kas_masuk3 = total_terima1 + total_terima2
+
+    utang = models.utangm.objects.all()
+    kas_masuk4 = 0
+    for i in utang:
+      kas_masuk4 += i.jum_utang()
+
+    pem = models.pem_tunaim.objects.all()
+    pem1 = models.pem_kreditm.objects.all()
+
+    kas_keluar1 = 0
+    for i in pem:
+      kas_keluar1 += i.kas_keluar1()
+
+    kas_keluar2 = 0
+    for i in pem1:
+      kas_keluar2 += i.kas_keluar2()
+
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
+
+    bayar11 = 0
+
+    for p in pem:
+        bayar11 += p.dibayar1
+    
+    bayar22 = 0
+
+    for q in utang:
+        bayar22 += q.dibayar
+    
+    bayar33 = 0
+
+    for r in pem1:
+        bayar33 += r.dibayar
+
+    kas_keluar3 = bayar11 + bayar22 + bayar33
+
+    jumlah1 = kas_masuk1 + kas_masuk2 + kas_masuk3 + kas_masuk4
+    jumlah2 = kas_keluar1 + kas_keluar2 + kas_keluar3
+
+    total = jumlah1 - jumlah2
+    
+    pend = models.pend_lainm.objects.all()
+    penjualan1 = models.penjualan1m.objects.all()
+    penjualan2 = models.pend_lainm.objects.all()
+
+    total_saldo1 = 0  
+
+    for p in penjualan1:
+      total_saldo1 += p.saldo()
+
+    total_saldo2 = 0
+
+    for p in pend:
+      total_saldo2 += p.saldo()
+
+    saldo_total1 = total_saldo1 + total_saldo2
+
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
+
+    saldo11 = 0
+
+    for p in pem:
+        saldo11 += p.saldo2()
+    
+    saldo22 = 0
+
+    for q in utang:
+        saldo22 += q.jumlah3()
+    
+    saldo33 = 0
+
+    for r in pem1:
+        saldo33 += r.saldo1()
+
+    jumlah10 = saldo11 + saldo22 + saldo33
+
+
     return render(req, 'hal1/index1.html', {
+    'kas_masuk1': kas_masuk1,
+    'kas_masuk2': kas_masuk2,
+    'kas_masuk3': kas_masuk3,
+    'kas_masuk4': kas_masuk4,
+    'kas_keluar1': kas_keluar1,
+    'kas_keluar2': kas_keluar2,
+    'kas_keluar3': kas_keluar3,
+    'jumlah1': jumlah1,
+    'jumlah10': jumlah10,
+    'jumlah2': jumlah2,
+    'total': total,
+    'saldo_total1': saldo_total1,
     })
 
 def penjualan(req):
@@ -65,15 +183,23 @@ def piutang(req):
     pend = models.pend_lainm.objects.all()
     penjualan1 = models.penjualan1m.objects.all()
     penjualan2 = models.pend_lainm.objects.all()
+
+    total_saldo1 = 0
+    total_terima1 = 0   
+
+    for p in penjualan1:
+      total_saldo1 += p.saldo()
+      total_terima1 += p.terima
+
     total_saldo2 = 0
     total_terima2 = 0   
- 
+
     for p in pend:
       total_saldo2 += p.saldo()
       total_terima2 += p.terima
 
-    saldo_total1 = total_saldo2
-    saldo_total2 = total_terima2
+    saldo_total1 = total_saldo1 + total_saldo2
+    saldo_total2 = total_terima1 + total_terima2
     return render(req, 'uangmasuk/index6.html', {
         'data2': pend,
         'data' :penjualan1,
@@ -90,6 +216,7 @@ def utang(req):
         if form_input.is_valid():
             form_input.save()
         return redirect('/utang')
+
     utang = models.utangm.objects.all()
     jum_utang = 0
     for i in utang:
@@ -132,12 +259,34 @@ def pembelian_tunai(req):
             form_input.save()
         return redirect('/pembelian_tunai')
     pem = models.pem_tunaim.objects.all()
-    jum_pem = 0
+    pem1 = models.pem_kreditm.objects.all()
+
+    kas_keluar1 = 0
+    pembelian1 = 0
+    utang1 = 0
     for i in pem:
-      jum_pem += i.jum_pem()
+      kas_keluar1 += i.kas_keluar1()
+      pembelian1 += i.pembelian1()
+      utang1 += i.utang1()
+
+
+    kas_keluar2 = 0
+    pembelian2 = 0
+    utang2 = 0
+    for i in pem1:
+      kas_keluar2 += i.kas_keluar2()
+      pembelian2 += i.pembelian2()
+      utang2 += i.utang2()
+
     return render(req, 'pembelian/index10.html', {
         'data': pem,
-        'jum_pem': jum_pem,
+        'data1': pem1,
+        'kas_keluar1': kas_keluar1,
+        'kas_keluar2': kas_keluar2,
+        'pembelian1' : pembelian1,
+        'pembelian2' : pembelian2,
+        'utang1': utang1,
+        'utang2': utang2,
         'form': form_input,
     })
 
@@ -149,15 +298,12 @@ def pembelian_kredit(req):
         form_input = forms.pem_kreditf(req.POST)
         if form_input.is_valid():
             form_input.save()
-        return redirect('/pembelian_kredit')
+        return redirect('//pembelian_tunai')
         
     pem = models.pem_kreditm.objects.all()
-    jum_pem = 0
-    for i in pem:
-      jum_pem += i.jum_pem()
+
     return render(req, 'pembelian/index11.html', {
         'data': pem,
-        'jum_pem': jum_pem,
         'form': form_input,
     })
 
@@ -185,52 +331,40 @@ def pembelian_lain(req):
 def pembayaran_utang(req):
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
-    pem1 = models.pem_lainm.objects.all()
-    bayar = models.pembayaran_lainm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
 
-    jum_utang = 0
-    total_saldo = 0
-    total_dibayar = 0
+    saldo11 = 0
+    bayar11 = 0
 
-    for i in utang:
-      jum_utang += i.jum_utang()
+    for p in pem:
+        saldo11 += p.saldo2()
+        bayar11 += p.dibayar1
 
-    for u in utang:
-        total_saldo += u.saldo()
-        total_dibayar += u.dibayar
+    
+    saldo22 = 0
+    bayar22 = 0
 
-    total_saldo1 = 0
-    total_dibayar1 = 0
+    for q in utang:
+        saldo22 += q.jumlah3()
+        bayar22 += q.dibayar
+    
+    saldo33 = 0
+    bayar33 = 0
 
-    for u in pem:
-        total_saldo1 += u.saldo()
-        total_dibayar1 += u.dibayar1
+    for r in pem1:
+        saldo33 += r.saldo1()
+        bayar33 += r.dibayar
 
-    total_saldo2 = 0
-    total_dibayar2 = 0
+    jumlah1 = saldo11 + saldo22 + saldo33
+    jumlah2 = bayar11 + bayar22 + bayar33
 
-    for u in pem1:
-        total_saldo2 += u.saldo()
-        total_dibayar2 += u.dibayar2
-
-    total_saldo3 = 0
-    total_dibayar3 = 0
-
-    for u in bayar:
-        total_saldo3 += u.saldo()
-        total_dibayar3 += u.dibayar3
-
-    jumlah1 = total_saldo + total_saldo1 + total_saldo2 + total_saldo3
-    jumlah2 = total_dibayar + total_dibayar1 + total_dibayar2 + total_dibayar3
 
     return render(req, 'uangkeluar/index13.html', {
         'data': utang,
         'data1': pem,
         'data2': pem1,
-        'data3': bayar,
-        'jum_utang': jum_utang,
-        'jumlah1': jumlah1,
-        'jumlah2': jumlah2,
+        'jumlah1' : jumlah1,
+        'jumlah2' : jumlah2,
     })
 
 def pembayaran_biaya(req):
@@ -285,73 +419,85 @@ def barang(req):
     })
 
 def lr(req):
+    pen = models.penjualan1m.objects.all()
+    pen2 = models.pend_lainm.objects.all()
 
-# saldo awal
+    kas_masuk1 = 0
+    for q in pen:
+      kas_masuk1 += q.kas_masuk1()
 
-# uang masuk
- 
+    kas_masuk2 = 0
+    for q in pen2:
+      kas_masuk2 += q.jum_pend()
 
+    penjualan1 = models.penjualan1m.objects.all()
+    penjualan2 = models.pend_lainm.objects.all()
 
-# uang keluar
+    total_terima1 = 0   
+
+    for p in penjualan1:
+      total_terima1 += p.terima
+
+    total_terima2 = 0   
+
+    for p in penjualan2:
+      total_terima2 += p.terima
+
+    kas_masuk3 = total_terima1 + total_terima2
+
+    utang = models.utangm.objects.all()
+    kas_masuk4 = 0
+    for i in utang:
+      kas_masuk4 += i.jum_utang()
+
     pem = models.pem_tunaim.objects.all()
-    total6 = 0
-    for p in pem:
-      total6 += p.jum_pem()
+    pem1 = models.pem_kreditm.objects.all()
 
-    pem1 = models.pem_lainm.objects.all()
-    total7 = 0
-    for p in pem1:
-      total7 += p.jum_pem()
+    kas_keluar1 = 0
+    for i in pem:
+      kas_keluar1 += i.kas_keluar1()
 
-    # total8 pembayaran utang
+    kas_keluar2 = 0
+    for i in pem1:
+      kas_keluar2 += i.kas_keluar2()
+
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
-    pem1 = models.pem_lainm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
 
-    total_dibayar = 0
+    bayar11 = 0
 
+    for p in pem:
+        bayar11 += p.dibayar1
+    
+    bayar22 = 0
 
-    for u in utang:
-        total_dibayar += u.dibayar
+    for q in utang:
+        bayar22 += q.dibayar
+    
+    bayar33 = 0
 
-    total_dibayar1 = 0
+    for r in pem1:
+        bayar33 += r.dibayar
 
-    for u in pem:
-        total_dibayar1 += u.dibayar1
+    kas_keluar3 = bayar11 + bayar22 + bayar33
 
-    total_dibayar2 = 0
+    jumlah1 = kas_masuk1 + kas_masuk2 + kas_masuk3 + kas_masuk4
+    jumlah2 = kas_keluar1 + kas_keluar2 + kas_keluar3
 
-    for u in pem1:
-        total_dibayar2 += u.dibayar2
-
-    total8 = total_dibayar + total_dibayar1 + total_dibayar2
-
-    bayar = models.pembayaran_biayam.objects.all()
-    total9 = 0
-    for p in bayar:
-      total9 += p.jum_pem()
-
-    bayar2 = models.pembayaran_lainm.objects.all()
-    total10 = 0
-    for p in bayar2:
-        total10 += p.jum1()
-
-    sawal = models.penjualan1m.objects.all()
-    saldo1 = 0
-    for p in sawal:
-        saldo1 += p.saldo_awal
-
-    total_semua2 = total6 + total7 + total8 + total9 + total10
-    print(sawal)
-
+    total = jumlah1 - jumlah2
+      
     return render(req, 'keperluan/index16.html', {
-        'total6': total6,
-        'total7': total7,
-        'total8': total8,
-        'total9': total9,
-        'total10': total10,
-        'total_semua2': total_semua2,
-        'saldo': saldo1,
+    'kas_masuk1': kas_masuk1,
+    'kas_masuk2': kas_masuk2,
+    'kas_masuk3': kas_masuk3,
+    'kas_masuk4': kas_masuk4,
+    'kas_keluar1': kas_keluar1,
+    'kas_keluar2': kas_keluar2,
+    'kas_keluar3': kas_keluar3,
+    'jumlah1': jumlah1,
+    'jumlah2': jumlah2,
+    'total': total,
     })
 
 
@@ -517,7 +663,7 @@ def edit_p_kredit_terima1(req, id):
         'data1': penjualan,
     })
 
-def edit_pend_lain_terima(req, id):
+def edit_pend_lain_terima(req, id): 
     if req.POST:
         models.pend_lainm.objects.filter(pk=id).update(terima=req.POST['terima'])
         return redirect('/piutang')
@@ -559,7 +705,7 @@ def edit_pend_lain(req, id):
 
 def edit_pem_tunai(req, id):
     if req.POST:
-        models.pem_tunaim.objects.filter(pk=id).update(jumlah=req.POST['jumlah'], catatan=req.POST['catatan'])
+        models.pem_tunaim.objects.filter(pk=id).update(keterangan=req.POST['keterangan'], kas_keluar=req.POST['kas_keluar'])
         return redirect('/pembelian_tunai')
 
     pem = models.pem_tunaim.objects.filter(pk=id).first()
@@ -659,10 +805,10 @@ def edit_butang2(req, id):
 
 def edit_butang3(req, id):
     if req.POST:
-        models.pembayaran_lainm.objects.filter(pk=id).update(dibayar3=req.POST['dibayar3'])
+        models.pem_tunaim.objects.filter(pk=id).update(dibayar=req.POST['dibayar'])
         return redirect('/pembayaran_utang')
 
-    utang = models.pembayaran_lainm.objects.filter(pk=id).first()
+    utang = models.pem_tunaim.objects.filter(pk=id).first()
     return render(req, 'uangkeluar/edit_butang3.html', {
         'data': utang,
     })

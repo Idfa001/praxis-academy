@@ -30,7 +30,7 @@ class pend_lainf(ModelForm):
 class pem_tunaif(ModelForm):
     class Meta:
         model = models.pem_tunaim
-        exclude = []
+        exclude = [ 'dibayar' ]
 
 class pem_kreditf(ModelForm):
     class Meta:
