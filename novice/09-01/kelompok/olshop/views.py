@@ -5,9 +5,128 @@ from . import models, forms
 
 
 def halamandepan(req):
+    if not req.user.is_authenticated:
+        return redirect ('/account')
+
+    pen = models.penjualan1m.objects.all()
+    pen2 = models.pend_lainm.objects.all()
+
+    kas_masuk1 = 0
+    for q in pen:
+      kas_masuk1 += q.kas_masuk1()
+
+    kas_masuk2 = 0
+    for q in pen2:
+      kas_masuk2 += q.jum_pend()
+
+    penjualan1 = models.penjualan1m.objects.all()
+    penjualan2 = models.pend_lainm.objects.all()
+
+    total_terima1 = 0   
+
+    for p in penjualan1:
+      total_terima1 += p.terima
+
+    total_terima2 = 0   
+
+    for p in penjualan2:
+      total_terima2 += p.terima
+
+    kas_masuk3 = total_terima1 + total_terima2
+
+    utang = models.utangm.objects.all()
+    kas_masuk4 = 0
+    for i in utang:
+      kas_masuk4 += i.jum_utang()
+
+    pem = models.pem_tunaim.objects.all()
+    pem1 = models.pem_kreditm.objects.all()
+
+    kas_keluar1 = 0
+    for i in pem:
+      kas_keluar1 += i.kas_keluar1()
+
+    kas_keluar2 = 0
+    for i in pem1:
+      kas_keluar2 += i.kas_keluar2()
+
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
+
+    bayar11 = 0
+
+    for p in pem:
+        bayar11 += p.dibayar1
+    
+    bayar22 = 0
+
+    for q in utang:
+        bayar22 += q.dibayar
+    
+    bayar33 = 0
+
+    for r in pem1:
+        bayar33 += r.dibayar
+
+    kas_keluar3 = bayar11 + bayar22 + bayar33
+
+    jumlah1 = kas_masuk1 + kas_masuk2 + kas_masuk3 + kas_masuk4
+    jumlah2 = kas_keluar1 + kas_keluar2 + kas_keluar3
+
+    total = jumlah1 - jumlah2
+    
+    pend = models.pend_lainm.objects.all()
+    penjualan1 = models.penjualan1m.objects.all()
+    penjualan2 = models.pend_lainm.objects.all()
+
+    total_saldo1 = 0  
+
+    for p in penjualan1:
+      total_saldo1 += p.saldo()
+
+    total_saldo2 = 0
+
+    for p in pend:
+      total_saldo2 += p.saldo()
+
+    saldo_total1 = total_saldo1 + total_saldo2
+
+    utang = models.utangm.objects.all()
+    pem = models.pem_kreditm.objects.all()
+    pem1 = models.pem_tunaim.objects.all()
+
+    saldo11 = 0
+
+    for p in pem:
+        saldo11 += p.saldo2()
+    
+    saldo22 = 0
+
+    for q in utang:
+        saldo22 += q.jumlah3()
+    
+    saldo33 = 0
+
+    for r in pem1:
+        saldo33 += r.saldo1()
+
+    jumlah10 = saldo11 + saldo22 + saldo33
+
 
     return render(req, 'hal1/index1.html', {
-
+    'kas_masuk1': kas_masuk1,
+    'kas_masuk2': kas_masuk2,
+    'kas_masuk3': kas_masuk3,
+    'kas_masuk4': kas_masuk4,
+    'kas_keluar1': kas_keluar1,
+    'kas_keluar2': kas_keluar2,
+    'kas_keluar3': kas_keluar3,
+    'jumlah1': jumlah1,
+    'jumlah10': jumlah10,
+    'jumlah2': jumlah2,
+    'total': total,
+    'saldo_total1': saldo_total1,
     })
 
 def penjualan(req):
