@@ -20,9 +20,9 @@ class penjualan1m(models.Model):
     kas_masuk = models.DecimalField(default=0, max_digits=10, decimal_places=0)
     terima = models.IntegerField(default=0)
 
-    
+     
     def tanggal1(self):
-        return self.tanggal.strftime("%d-%m-%Y")
+        return self.tanggal.strftime("%d %B %Y")
 
     def total(self):
         return self.barang.harga_jual * self.kuantitas

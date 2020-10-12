@@ -119,10 +119,10 @@ BOOTSTRAP4 = {
     'include_jquery': True,
 }
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 DATE_INPUT_FORMATS = ('%d-%m-%Y')
-USE_I18N = True
+USE_I18N = False
 USE_L10N = True
 
 
