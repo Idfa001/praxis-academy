@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Sum
 from bootstrap_datepicker_plus import DatePickerInput
 from . import models, forms
+from account.forms import CreateUserForm
 
 
 def halamandepan(req):
@@ -10,6 +11,10 @@ def halamandepan(req):
  
     pen = models.penjualan1m.objects.all()
     pen2 = models.pend_lainm.objects.all()
+
+    pen = models.penjualan1m.objects.filter(owner=req.user)
+    pen2 = models.pend_lainm.objects.filter(owner=req.user)
+
 
     kas_masuk1 = 0
     for q in pen:
@@ -21,6 +26,9 @@ def halamandepan(req):
 
     penjualan1 = models.penjualan1m.objects.all()
     penjualan2 = models.pend_lainm.objects.all()
+
+    penjualan1 = models.penjualan1m.objects.filter(owner=req.user)
+    penjualan2 = models.pend_lainm.objects.filter(owner=req.user)
 
     total_terima1 = 0   
 
@@ -35,12 +43,17 @@ def halamandepan(req):
     kas_masuk3 = total_terima1 + total_terima2
 
     utang = models.utangm.objects.all()
+    utang = models.utangm.objects.filter(owner=req.user)
+
     kas_masuk4 = 0
     for i in utang:
       kas_masuk4 += i.jum_utang()
 
     pem = models.pem_tunaim.objects.all()
     pem1 = models.pem_kreditm.objects.all()
+
+    pem = models.pem_tunaim.objects.filter(owner=req.user)
+    pem1 = models.pem_kreditm.objects.filter(owner=req.user)
 
     kas_keluar1 = 0
     for i in pem:
@@ -53,6 +66,11 @@ def halamandepan(req):
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
     pem1 = models.pem_tunaim.objects.all()
+
+    utang = models.utangm.objects.filter(owner=req.user)
+    pem = models.pem_kreditm.objects.filter(owner=req.user)
+    pem1 = models.pem_tunaim.objects.filter(owner=req.user)
+
 
     bayar11 = 0
 
@@ -80,6 +98,10 @@ def halamandepan(req):
     penjualan1 = models.penjualan1m.objects.all()
     penjualan2 = models.pend_lainm.objects.all()
 
+    pend = models.pend_lainm.objects.filter(owner=req.user)
+    penjualan1 = models.penjualan1m.objects.filter(owner=req.user)
+    penjualan2 = models.pend_lainm.objects.filter(owner=req.user)
+
     total_saldo1 = 0  
 
     for p in penjualan1:
@@ -95,6 +117,10 @@ def halamandepan(req):
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
     pem1 = models.pem_tunaim.objects.all()
+
+    utang = models.utangm.objects.filter(owner=req.user)
+    pem = models.pem_kreditm.objects.filter(owner=req.user)
+    pem1 = models.pem_tunaim.objects.filter(owner=req.user)
 
     saldo11 = 0
 
@@ -127,6 +153,7 @@ def halamandepan(req):
     'jumlah2': jumlah2,
     'total': total,
     'saldo_total1': saldo_total1,
+
     })
 
 def penjualan_tunai(req):  
@@ -181,6 +208,10 @@ def piutang(req):
     penjualan1 = models.penjualan1m.objects.all()
     penjualan2 = models.pend_lainm.objects.all()
 
+    pend = models.pend_lainm.objects.filter(owner=req.user)
+    penjualan1 = models.penjualan1m.objects.filter(owner=req.user)
+    penjualan2 = models.pend_lainm.objects.filter(owner=req.user)
+
     total_saldo1 = 0
     total_terima1 = 0   
 
@@ -217,6 +248,8 @@ def utang(req):
         return redirect('/utang')
 
     utang = models.utangm.objects.all()
+    utang = models.utangm.objects.filter(owner=req.user)
+
     jum_utang = 0
     for i in utang:
       jum_utang += i.jum_utang()
@@ -282,6 +315,10 @@ def pembayaran_utang(req):
     pem = models.pem_kreditm.objects.all()
     pem1 = models.pem_tunaim.objects.all()
 
+    utang = models.utangm.objects.filter(owner=req.user)
+    pem = models.pem_kreditm.objects.filter(owner=req.user)
+    pem1 = models.pem_tunaim.objects.filter(owner=req.user)
+
     saldo11 = 0
     bayar11 = 0
 
@@ -335,6 +372,7 @@ def barang(req):
 def lr(req):
     if  req.POST:
         saldo_awal = models.SaldoAwal.objects.first()
+
         if saldo_awal:
             models.SaldoAwal.objects.update(saldo_awal=req.POST['saldo_awal'])
         else:
@@ -349,6 +387,9 @@ def lr(req):
     pen = models.penjualan1m.objects.all()
     pen2 = models.pend_lainm.objects.all()
 
+    pen = models.penjualan1m.objects.filter(owner=req.user)
+    pen2 = models.pend_lainm.objects.filter(owner=req.user)
+
     kas_masuk1 = 0
     for q in pen:
       kas_masuk1 += q.kas_masuk1()
@@ -359,6 +400,9 @@ def lr(req):
 
     penjualan1 = models.penjualan1m.objects.all()
     penjualan2 = models.pend_lainm.objects.all()
+
+    penjualan1 = models.penjualan1m.objects.filter(owner=req.user)
+    penjualan2 = models.pend_lainm.objects.filter(owner=req.user)
 
     total_terima1 = 0   
 
@@ -380,6 +424,9 @@ def lr(req):
     pem = models.pem_tunaim.objects.all()
     pem1 = models.pem_kreditm.objects.all()
 
+    pem = models.pem_tunaim.objects.filter(owner=req.user)
+    pem1 = models.pem_kreditm.objects.filter(owner=req.user)
+
     kas_keluar1 = 0
     for i in pem:
       kas_keluar1 += i.kas_keluar1()
@@ -391,6 +438,10 @@ def lr(req):
     utang = models.utangm.objects.all()
     pem = models.pem_kreditm.objects.all()
     pem1 = models.pem_tunaim.objects.all()
+
+    utang = models.utangm.objects.filter(owner=req.user)
+    pem = models.pem_kreditm.objects.filter(owner=req.user)
+    pem1 = models.pem_tunaim.objects.filter(owner=req.user)
 
     bayar11 = 0
 
@@ -417,6 +468,7 @@ def lr(req):
     saldo_awal = models.SaldoAwal.objects.first()
 
     saldo_awal1 = models.SaldoAwal.objects.all()
+
     saldo1 = 0
     for p in saldo_awal1:
         saldo1 += p.saldo_awal
@@ -519,7 +571,7 @@ def pem_kreditv(req):
 
 def pem_lainv(req):
     task = models.barangm.objects.filter(owner=req.user)
-    form_input = forms.pem_lainf()
+    form_input = forms.pem_lainf(owner=req.user)
     if req.POST:
         form_input = forms.pem_lainf(req.POST)
         if form_input.is_valid():
@@ -774,7 +826,7 @@ def hapus5(req, id):
 
 def hapus6(req, id):
     models.pem_kreditm.objects.filter(pk=id).delete()
-    return redirect('/pembelian_kredit')
+    return redirect('/pembelian_tunai')
 
 def hapus7(req, id):
     models.pem_lainm.objects.filter(pk=id).delete()
