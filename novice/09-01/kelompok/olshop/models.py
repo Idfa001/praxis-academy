@@ -15,6 +15,9 @@ class saldoawalm(models.Model):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='saldoawal')
     saldo_awal = models.DecimalField(default=0, max_digits=10, decimal_places=0)
 
+class SaldoAwal(models.Model):
+    saldo_awal = models.IntegerField(default=0)
+
 class penjualan1m(models.Model):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='penjualan')
     tanggal = models.DateField(auto_now_add=True)

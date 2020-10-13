@@ -13,6 +13,7 @@ class penjualan1f(ModelForm):
         super(penjualan1f, self).__init__(*args, **kwargs)
         self.fields['barang'].queryset = models.barangm.objects.filter(owner=user)
 
+
 class saldoawalf(ModelForm):
     class Meta:
         model = models.saldoawalm
@@ -41,21 +42,14 @@ class pem_kreditf(ModelForm):
     class Meta:
         model = models.pem_kreditm
         exclude = [ 'dibayar1', 'owner' ]
+        
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(pem_kreditf, self).__init__(*args, **kwargs)
+        self.fields['barang'].queryset = models.barangm.objects.filter(owner=user)
 
-class pem_lainf(ModelForm):
-    class Meta:
-        model = models.pem_lainm
-        exclude = [ 'dibayar2', 'owner' ]
 
-class pembayaran_biayaf(ModelForm):
-    class Meta:
-        model = models.pembayaran_biayam
-        exclude = ['owner']
 
-class pembayaran_lainf(ModelForm):
-    class Meta:
-        model = models.pembayaran_lainm
-        exclude = [ 'dibayar3', 'owner' ]
 
 class barangf(ModelForm):
     class Meta:
