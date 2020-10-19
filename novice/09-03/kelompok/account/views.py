@@ -12,7 +12,7 @@ from .forms import CreateUserForm
 
 def registerPage(request):
 	if request.user.is_authenticated:
-		return redirect('/')
+		return redirect('/') 
 	else:
 		form = CreateUserForm()
 		if request.method == 'POST':

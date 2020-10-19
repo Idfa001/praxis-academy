@@ -371,12 +371,12 @@ def barang(req):
 
 def lr(req):
     if  req.POST:
-        saldo_awal = models.SaldoAwal.objects.first()
+        saldo_awal = models.SaldoAwal.objects.filter(owner=req.user).first()
 
         if saldo_awal:
-            models.SaldoAwal.objects.update(saldo_awal=req.POST['saldo_awal'])
+            models.SaldoAwal.objects.filter(owner=req.user).update(saldo_awal=req.POST['saldo_awal'])
         else:
-            models.SaldoAwal.objects.create(saldo_awal=req.POST['saldo_awal'])
+            models.SaldoAwal.objects.filter(owner=req.user).create(saldo_awal=req.POST['saldo_awal'])
 
         return redirect('/lr')
 

@@ -12,7 +12,6 @@ class barangm(models.Model):
         return self.barang
  
 class saldoawalm(models.Model):
-    owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='sa')
     saldo_awal = models.DecimalField(default=0, max_digits=10, decimal_places=0)
 
 class SaldoAwal(models.Model):
