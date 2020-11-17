@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 
-class barangm(models.Model):
+class barangm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='barang')
     barang = models.CharField(max_length=200)
     harga_beli = models.DecimalField(default=0, max_digits=10, decimal_places=0)
@@ -11,11 +11,11 @@ class barangm(models.Model):
     def __str__(self):
         return self.barang
 
-class SaldoAwal(models.Model):
+class SaldoAwal(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='saldoawal')
     saldo_awal = models.IntegerField(default=None, blank=True, null=True)
 
-class penjualan1m(models.Model):
+class penjualan1m(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='penjualan')
     tanggal = models.DateField(auto_now_add=True)
     barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING)
@@ -44,7 +44,7 @@ class penjualan1m(models.Model):
         return self.piutang() - self.terima
 
 
-class utangm(models.Model):
+class utangm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='utang')
     tanggal = models.DateField(auto_now_add=True)
     catatan = models.CharField(max_length=200)
@@ -73,7 +73,7 @@ class utangm(models.Model):
     def jatempo(self):
         return self.duda().days
 
-class pend_lainm(models.Model):
+class pend_lainm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pendlain')
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
@@ -102,7 +102,7 @@ class pend_lainm(models.Model):
         return self.piutang1() - self.terima
 
 
-class pem_tunaim(models.Model):
+class pem_tunaim(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pemtunai')
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
@@ -136,7 +136,7 @@ class pem_tunaim(models.Model):
     def saldo1(self):
         return self.saldo()
 
-class pem_kreditm(models.Model):
+class pem_kreditm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pemkredit')
     tanggal = models.DateField(auto_now_add=True)
     barang = models.ForeignKey(barangm, on_delete = models.DO_NOTHING)
@@ -175,7 +175,7 @@ class pem_kreditm(models.Model):
     def saldo2 (self):
         return self.saldo1()
         
-class pem_lainm(models.Model):
+class pem_lainm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pemlain')
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
@@ -198,7 +198,7 @@ class pem_lainm(models.Model):
         return self.utang - self.dibayar2
 
 
-class pembayaran_biayam(models.Model):
+class pembayaran_biayam(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pembiaya')
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
@@ -211,7 +211,7 @@ class pembayaran_biayam(models.Model):
     def jum_pem(self):
         return self.dibayar
 
-class pembayaran_lainm(models.Model):
+class pembayaran_lainm(TenantAwareModel):
     owner = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='pembayaranlain')
     tanggal = models.DateField(auto_now_add=True)
     keterangan = models.CharField(max_length=200)
